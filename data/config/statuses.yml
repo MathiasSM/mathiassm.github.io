@@ -1,0 +1,31 @@
+
+- id: community
+  name: Community maintainance
+  description: "This project is maintained by the community"
+  lastString: "Last time I contributed was"
+
+- id: finished
+  name: Finished
+  description: "Complete and shipped."
+  lastString: "Finished"
+
+- id: beta
+  name: Beta
+  description: "Not ready, but usable."
+  lastString: "On hold since"
+
+- id: alpha
+  name: Alpha
+  description: "Not usable yet."
+  lastString: "On hold since"
+
+
+- id: unmaintained
+  name: Unmaintained
+  description: "Archived and probably outdated in many ways."
+  lastString: "Stopped"
+
+- id: ex
+  name: Ex-collaborator
+  description: "I'm not part of the project anymore."
+  lastString: "Left"

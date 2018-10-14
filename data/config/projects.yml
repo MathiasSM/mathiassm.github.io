@@ -1,0 +1,90 @@
+- project:
+    title: 'Sutori'
+    href: 'https://mathiassm.github.io/Sutori'
+    dateStarted: 2018-05-02
+    status: alpha
+    description:
+      short: 'A Programming Language to tell Stories.'
+      long: 'Developing an open source compiler for the general-purpose programming language Sutori.'
+    team:
+      - Génesis Kufatty
+
+- project:
+    title: 'Retyna'
+    href: 'https://retyna.github.io/'
+    dateStarted: 2017-02-05
+    dateLast: 2017-04-07
+    status: unmaintained
+    description:
+      short: 'Ruby interpreter for the Retina programming language.'
+      long: 'Developed a simple interpreter for a (mock) language for procedural drawing.'
+    team:
+      - Carlos Serrada
+
+- project:
+    title: 'This site'
+    href: '/'
+    dateStarted: 2015-11-26
+    status: beta
+    description:
+      short: 'My personal site/blog/space.'
+      long: 'Developed a simple ever-changing website for my own writings, showcase my projects and serve as an online portfolio.'
+
+- project:
+    title: 'Find Bot Tweets'
+    href: 'https://github.com/MathiasSM/tweet-bots-mapreduce'
+    dateStarted: 2018-07-10
+    dateLast: 2018-06-22
+    status: finished
+    description:
+      short: 'Hadoop MapReduce for Finding Tweets from bot accounts.'
+      long: 'Developed a two-phases algorithm to reduce a similarity graph of tweets from a dataset to the tweets most likely to be from bot accounts.'
+    team:
+      - Génesis Kufatty
+      - Fabiola López
+
+- project:
+    title: 'Vim dotfiles'
+    href: 'https://github.com/MathiasSM/.vim'
+    dateStarted: 2018-06-22
+    status: beta
+    description:
+      short: 'Vim dotfiles for a great coding experience'
+
+- project:
+    title: 'Apolo - Firefighters System'
+    href: '/blog/apolo-firefighters'
+    dateStarted: 2017-01-12
+    dateLast: 2017-04-05
+    status: ex
+    description:
+      short: 'Operations Module for the CBVUSB (Volunteer Fire Corps of the USB) Support System.'
+      long: 'Led a 8+ team of developers as part of Information Systems course in the USB.'
+    team:
+      - Jose Acevedo
+      - Pablo Betancourt
+      - Augusto Higalgo
+      - Irina Marcano
+      - Jonathan Reyes
+      - Rubmary Rojas
+      - Carlos Serrada
+      - Juan Tepedino
+
+- project:
+    title: 'SIGPAE'
+    href: '/blog/sigpae'
+    dateStarted: 2017-01-17
+    dateLast: 2017-03-30
+    status: ex
+    description:
+      short: 'Organizational tool for the Academic Records Office.'
+      long: 'Developed with team (notice me) "Zenpy" as part of Software Engineering course in the USB.'
+    team:
+      - Jose Acevedo
+      - Pablo Betancourt
+      - Augusto Higalgo
+      - Jonathan Reyes
+      - Rubmary Rojas
+      - Carlos Serrada
+      - Juan Tepedino
+

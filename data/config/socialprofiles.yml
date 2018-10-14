@@ -1,0 +1,33 @@
+- profile:
+    title: 'Twitter'
+    href: 'https://twitter.com/mathiassm'
+    username: '@mathiassm'
+    front: true
+    description: 'Wanna chat?'
+- profile:
+    title: 'Github'
+    href: 'https://Github.com/mathiassm'
+    username: 'MathiasSM'
+    front: true
+    description: 'Wanna code?'
+- profile:
+    title: 'LinkedIn'
+    href: 'https://linkedin.com/in/mathiassm'
+    username: 'mathiassm'
+    front: true
+    description: 'Wanna hire?'
+- profile:
+    title: 'Medium'
+    href: 'https://medium.com/@mathiassm'
+    username: '@mathiassm'
+    description: 'Creative writings'
+- profile:
+    title: 'MAL'
+    href: 'https://myanimelist/animelist/mathiassm'
+    username: 'mathiassm'
+    description: 'My Anime List'
+- profile:
+    title: 'IMDb'
+    href: 'https://www.imdb.com/user/ur62639773/ratings'
+    username: 'mathiassanmiguel'
+    description: 'Movie ratings'
