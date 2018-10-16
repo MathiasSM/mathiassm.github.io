@@ -1,5 +1,8 @@
 require("dotenv").config();
-const color = require("./data/config/colorHSL.json");
+const colorJson = require("./data/config/colors.json");
+const getColors = require("./utils/colors.js");
+
+const color = getColors(colorJson);
 
 /*
  * Globally accesible metadata
@@ -15,7 +18,8 @@ const siteMetadata = {
     { title: "Showcase", path: "/showcase" },
     { title: "Contact", path: "/contact" }
   ],
-  siteUrl: process.env.SITE_URL
+  siteUrl: process.env.SITE_URL,
+  color
 };
 
 /**
@@ -60,7 +64,7 @@ const gatsbyPlugins = [
       short_name: siteMetadata.title,
       start_url: `/`,
       background_color: `#ffffff`,
-      theme_color: color.primary,
+      theme_color: color.primary.pure,
       display: `minimal-ui`,
       icon: `src/images/logo.svg`
     }

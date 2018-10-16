@@ -11,6 +11,7 @@ import { Linkedin as LinkedIn } from "styled-icons/fa-brands/Linkedin.cjs";
 
 import withColors from "components/withcolors";
 import media from "utils/media";
+import { rhythm } from "utils/typography";
 
 const socialIcons = {
   Twitter,
@@ -20,6 +21,7 @@ const socialIcons = {
 };
 
 const SocialList = withColors(
+  c => c.primary.pure,
   styled.ul`
   margin: 0;
   padding: 1rem;
@@ -27,9 +29,10 @@ const SocialList = withColors(
   justify-content: space-evenly;
   align-items: flex-end;
   a {color: inherit}
+  list-style: none;
   ${media.tablet`
     a {color: white}
-    background: ${props => props.color.primary.hslString};
+    background: ${props => props.color};
   `}
   ${media.desktop``}
   ${media.bigdesktop``}
@@ -45,18 +48,19 @@ const Social = ({ profiles, className }) => (
         }
       }) => {
         const SocialIcon = styled(socialIcons[title])`
-          padding: 0.5rem;
+          padding: ${rhythm(0.5)} 0 0;
         `;
         return (
-          <a
-            key={title}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={description}
-          >
-            <SocialIcon height="50px" title={username} />
-          </a>
+          <li key={title}>
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={description}
+            >
+              <SocialIcon height="50px" title={username} />
+            </a>
+          </li>
         );
       }
     )}

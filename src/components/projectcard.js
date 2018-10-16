@@ -4,21 +4,20 @@ import styled from "styled-components";
 
 import withColors from "components/withcolors";
 
-const ListItem = withColors(
-  styled.li`
-    margin: 2rem 0;
-    h2 {
-      margin: 0;
-    }
-  `
-);
+const ListItem = styled.li`
+  margin: 2rem 0;
+  h2 {
+    margin: 0;
+  }
+`;
 
 const ExtLink = withColors(
+  c => c.accent.pure,
   styled.a`
     color: inherit;
     &:hover,
     &:focus {
-      color: ${props => props.color.accent.hslString};
+      color: ${props => props.color};
     }
   `
 );

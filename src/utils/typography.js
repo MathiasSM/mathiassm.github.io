@@ -1,4 +1,4 @@
-import Typography from "typography";
+const Typography = require("typography");
 
 const typography = new Typography({
   baseFontSize: 16,
@@ -26,6 +26,4 @@ const typography = new Typography({
 });
 
 const { rhythm, scale } = typography;
-
 export { rhythm, scale, typography as default };
-

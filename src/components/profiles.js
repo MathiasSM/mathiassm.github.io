@@ -12,6 +12,7 @@ import { Imdb as IMDb } from "styled-icons/fa-brands/Imdb.cjs";
 import MAL from "images/extra/MAL";
 
 import media from "utils/media";
+import { rhythm } from "utils/typography";
 import withColors from "components/withcolors";
 
 const socialIcons = {
@@ -23,39 +24,42 @@ const socialIcons = {
   MAL
 };
 
-const Profile = withColors(styled.article`
-  display: flex;
-  a {
+const Profile = withColors(
+  c => c.accent.pure,
+  styled.article`
     display: flex;
-    margin: 1rem 0;
-    width: 100%;
-    color: inherit;
-    &:hover,
-    &:focus {
-      color: ${props => props.color.accent.hslString};
+    a {
+      display: flex;
+      margin: ${rhythm(1)} 0;
+      width: 100%;
+      color: inherit;
+      &:hover,
+      &:focus {
+        color: ${props => props.color};
+      }
     }
-  }
-  flex: 0 1 100%;
-  // Make this two columns
-  ${media.phone`
-    flex: 0 1 45%;
-    &:nth-child(odd) {
-      a{ margin-right: 1em; }
-    }
-  `};
+    flex: 0 1 100%;
+    // Make this two columns
+    ${media.phone`
+      flex: 0 1 45%;
+      &:nth-child(odd) {
+        a{ margin-right: 1em; }
+      }
+    `};
 
-  ${media.tablet`
-  `};
+    ${media.tablet`
+    `};
 
-  // Make this three columns
-  ${media.desktop`
-    flex: 0 0 33%;
-    &:nth-child(odd) { a{ margin-right: unset;} }
-    &:nth-child(3n+1), &:nth-child(3n+2) {
-      a{ margin-right: 1em; }
-    }
-  `};
-`);
+    // Make this three columns
+    ${media.desktop`
+      flex: 0 0 33%;
+      &:nth-child(odd) { a{ margin-right: unset;} }
+      &:nth-child(3n+1), &:nth-child(3n+2) {
+        a{ margin-right: 1em; }
+      }
+    `};
+  `
+);
 
 const ProfileIcon = styled.div`
   display: flex;
