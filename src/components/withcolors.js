@@ -1,53 +1,50 @@
 import { StaticQuery, graphql } from "gatsby";
 import React from "react";
-import PropTypes from "prop-types";
-
-import { hslString } from "utils/styles";
-
-const getDisplayName = Comp =>
-  Comp.displayName ||
-  Comp.name ||
-  (typeof Comp === "string" && Comp.length > 0 ? Comp : "Unknown");
 
 const query = graphql`
   query {
-    colorList: allColorHslJson {
-      colors: edges {
-        color: node {
-          id
-          hsl
+    site {
+      siteMetadata {
+        color {
+          primary {
+            black
+            dark
+            pure
+            light
+            white
+          }
+          secondary {
+            black
+            dark
+            pure
+            light
+            white
+          }
+          accent {
+            black
+            dark
+            pure
+            light
+            white
+          }
         }
       }
     }
   }
 `;
 
-const withColors = Comp => {
-  const WithColors = ({ children, ...props }) => (
+const id = a => a;
+
+const withColors = (getColors = id, Comp) => {
+  const WithColors = ({ ...props }) => (
     <StaticQuery
       query={query}
-      render={({ colorList: { colors } }) => {
-        const color = {};
-        colors.forEach(({ color: { id, hsl } }) => {
-          color[id] = { hsl, hslString: hslString(hsl) };
-        });
-
-        return (
-          <Comp color={color} {...props}>
-            {children}
-          </Comp>
-        );
+      render={data => {
+        const color = getColors(data.site.siteMetadata.color);
+        return <Comp {...{ color }} {...props} />;
       }}
     />
   );
-  WithColors.displayName = `withColors(${getDisplayName(Comp)})`;
-  WithColors.propTypes = {
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ])
-  };
-
   return WithColors;
 };
 

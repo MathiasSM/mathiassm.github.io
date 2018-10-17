@@ -22,6 +22,9 @@ const GriddedMenu = styled(Menu)`
   grid-area: menu;
 `;
 const GriddedContent = styled(Content)`
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
   grid-area: content;
 `;
 const GriddedSocial = styled(Social)`

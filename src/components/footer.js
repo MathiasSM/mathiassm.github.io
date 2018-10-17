@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import styled from "styled-components";
+import { rhythm } from "utils/typography";
 
 const Footer = styled.footer`
-  margin-top: 3rem;
+  margin-top: ${rhythm(2)};
 `;
 
 const MainFooter = ({ owner, since }) => (

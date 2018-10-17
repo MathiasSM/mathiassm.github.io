@@ -4,15 +4,16 @@ import styled from "styled-components";
 
 import media from "utils/media";
 import Footer from "components/footer";
+import { rhythm } from "utils/typography";
 
 const ContentDiv = styled.div`
-  padding: 1.5rem;
+  padding: ${rhythm(1)};
   overflow-y: auto;
   ${media.tablet`
-    padding: 1.5rem 3rem;
+    padding: ${rhythm(1)} 3rem;
   `}
   ${media.desktop`
-    padding: 1.5rem 5rem;
+    padding: ${rhythm(1)} 5rem;
   `}
   ${media.bigdesktop``}
 `;

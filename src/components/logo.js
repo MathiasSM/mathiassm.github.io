@@ -7,15 +7,17 @@ import media from "utils/media";
 
 import logo from "images/logo.svg";
 import withColors from "components/withcolors";
+import { rhythm } from "utils/typography";
 
 const Wrapper = withColors(
+  c => c.primary.pure,
   styled.div`
-    background: ${props => props.color.primary.hslString};
+    background: ${props => props.color};
     &,
     a {
       color: white;
     }
-    padding: 1rem;
+    padding: ${rhythm(1)} 1rem;
 
     display: flex;
     flex-wrap: wrap;
@@ -32,7 +34,7 @@ const Wrapper = withColors(
 
 const HomeLink = styled(Link)`
   font-weight: bold;
-  font-size: 2em;
+  font-size: ${rhythm(1)};
   grid-area: title;
   text-align: left;
   margin-left: 1rem;
@@ -43,6 +45,7 @@ const HomeLink = styled(Link)`
 `;
 
 const Subtitle = styled.div`
+  font-weight: bold;
   text-align: center;
   width: 100%;
   grid-area: subtitle;
@@ -52,7 +55,7 @@ const LogoImg = styled.img`
   height: 100%;
   max-width: 40%;
   max-height: 100%;
-  min-width: 3em;
+  min-width: ${rhythm(3)};
   padding: 0;
   margin: 0;
   ${media.desktop`
@@ -74,8 +77,8 @@ const LogoLink = styled(Link)`
 
 const Logo = ({ title, subtitle, className }) => (
   <Wrapper className={className}>
-    <LogoLink to="/">
-      <LogoImg src={logo} />
+    <LogoLink to="/" title="Go home">
+      <LogoImg src={logo} alt="" />
     </LogoLink>
     <HomeLink to="/">{title}</HomeLink>
     <Subtitle>{subtitle}</Subtitle>

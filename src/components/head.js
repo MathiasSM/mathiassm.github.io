@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import t from "utils/typography";
+
 import Helmet from "react-helmet";
 
 const Head = ({ title, subtitle, description }) => (
