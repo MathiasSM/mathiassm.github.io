@@ -3,6 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import media from "utils/media";
 import withColors from "components/withcolors";
 import { rhythm } from "utils/typography";
 
@@ -28,6 +29,16 @@ const Meta = styled.div`
   opacity: 0.7;
 `;
 
+const WhiteBreak = styled.span`
+  &::before {
+    content: " ";
+    display: block;
+  }
+  ${media.tablet`
+    &::before {display: inline;}
+  `};
+`;
+
 const BlogItem = ({
   lastModifiedAt,
   createdAt,
@@ -45,7 +56,7 @@ const BlogItem = ({
             <span>From </span>
             <time dateTime={createdAt}>{createdAtString}</time>
             <span>.</span>
-            <span> </span>
+            <WhiteBreak />
             <span>Last updated on </span>
             <time dateTime={lastModifiedAt}>{lastModifiedAt}</time>
             <span>.</span>
