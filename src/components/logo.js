@@ -45,6 +45,7 @@ const HomeLink = styled(Link)`
 `;
 
 const Subtitle = styled.div`
+  font-weight: bold;
   text-align: center;
   width: 100%;
   grid-area: subtitle;

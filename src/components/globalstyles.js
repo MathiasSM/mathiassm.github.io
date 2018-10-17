@@ -1,8 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-// import katex from "katex/dist/katex.min.css";
-// import prism from "prismjs/themes/prism-solarizedlight.css";
-
 import withColors from "./withcolors";
 
 export const Global = withColors(

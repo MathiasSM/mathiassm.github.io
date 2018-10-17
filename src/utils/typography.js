@@ -24,6 +24,5 @@ const typography = new Typography({
   bodyWeight: 400,
   boldWeight: 700
 });
-
 const { rhythm, scale } = typography;
 export { rhythm, scale, typography as default };

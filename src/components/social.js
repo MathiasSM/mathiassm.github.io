@@ -23,20 +23,20 @@ const socialIcons = {
 const SocialList = withColors(
   c => c.primary.pure,
   styled.ul`
-  margin: 0;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-end;
-  a {color: inherit}
-  list-style: none;
-  ${media.tablet`
-    a {color: white}
-    background: ${props => props.color};
-  `}
-  ${media.desktop``}
-  ${media.bigdesktop``}
-`
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    a {color: inherit}
+    list-style: none;
+    ${media.tablet`
+      a {color: white}
+      background: ${props => props.color};
+    `}
+    ${media.desktop``}
+    ${media.bigdesktop``}
+  `
 );
 
 const Social = ({ profiles, className }) => (
