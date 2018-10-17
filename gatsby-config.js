@@ -71,7 +71,8 @@ const gatsbyPlugins = [
       display: `minimal-ui`,
       icon: `src/images/logo.svg`
     }
-  }
+  },
+  "gatsby-plugin-offline"
 ];
 
 /**
