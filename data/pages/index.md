@@ -1,5 +1,5 @@
 ---
-title: Mathias San Miguel
+title: Mathias San Miguel
 path: "/"
 type: page
 ---
