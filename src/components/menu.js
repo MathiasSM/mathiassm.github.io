@@ -19,6 +19,7 @@ const MenuNav = withColors(
     margin: 0;
     width: 100%;
     text-align: center;
+    font-weight: bold;
     a {
       color: white;
     }

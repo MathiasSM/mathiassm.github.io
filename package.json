@@ -47,7 +47,8 @@
     "slugify": "^1.3.1",
     "styled-components": "^4.0.0-beta.11.3",
     "styled-icons": "^3.0.0",
-    "tinycolor2": "^1.4.1",
+    "typeface-roboto": "0.0.54",
+    "typeface-roboto-slab": "0.0.54",
     "typography": "^0.16.17"
   },
   "keywords": [

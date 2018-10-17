@@ -49,7 +49,10 @@ const gatsbyPlugins = [
   },
   {
     resolve: "gatsby-plugin-typography",
-    options: { pathToConfigModule: "src/utils/typography.js" }
+    options: {
+      pathToConfigModule: "src/utils/typography.js",
+      omitGoogleFont: true
+    }
   },
   // Adds custom robots.txt to production site
   {

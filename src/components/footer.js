@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { rhythm } from "utils/typography";
 
 const Footer = styled.footer`
-  margin-top: ${rhythm(3)};
+  margin-top: ${rhythm(2)};
 `;
 
 const MainFooter = ({ owner, since }) => (
