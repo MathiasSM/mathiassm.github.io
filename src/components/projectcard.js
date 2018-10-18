@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import withColors from "components/withcolors";
+import { rhythm } from "utils/typography";
 
 const ListItem = styled.li`
-  margin: 2rem 0;
+  margin: ${rhythm(1)} 0;
   h2 {
     margin: 0;
   }

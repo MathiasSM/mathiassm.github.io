@@ -2,6 +2,7 @@
   "name": "MathiasSM",
   "version": "0.9.0",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.4.1",
     "babel-plugin-styled-components": "^1.7.1",
     "chroma-js": "^1.4.0",
     "dotenv": "^6.1.0",
