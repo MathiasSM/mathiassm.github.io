@@ -13,9 +13,12 @@ const siteMetadata = {
   description: "Personal site, portfolio and blog",
   owner: "Mathias San Miguel",
   since: 2013,
+  now: new Date().getFullYear(),
+  entryPoint: "/blog",
   sections: [
     { title: "Blog", path: "/blog" },
     { title: "Showcase", path: "/showcase" },
+    { title: "About", path: "/about" },
     { title: "Contact", path: "/contact" }
   ],
   siteUrl: process.env.SITE_URL,

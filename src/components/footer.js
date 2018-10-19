@@ -8,13 +8,14 @@ const Footer = styled.footer`
   margin-top: ${rhythm(2)};
 `;
 
-const MainFooter = ({ owner, since }) => (
-  <Footer>{`${owner} © ${since}-Present`}</Footer>
+const MainFooter = ({ owner, since, now }) => (
+  <Footer>{`${owner} © ${since}-${now}`}</Footer>
 );
 
 MainFooter.propTypes = {
   owner: PropTypes.string.isRequired,
-  since: PropTypes.number.isRequired
+  since: PropTypes.number.isRequired,
+  now: PropTypes.number.isRequired
 };
 
 export default MainFooter;

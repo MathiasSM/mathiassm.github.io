@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
@@ -75,17 +75,40 @@ const LogoLink = styled(Link)`
   `};
 `;
 
+const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        entryPoint
+      }
+    }
+  }
+`;
+const GoHome = ({ title }) => (
+  <StaticQuery
+    query={query}
+    render={data => (
+      <>
+        <LogoLink to={data.site.siteMetadata.entryPoint} title="Go home">
+          <LogoImg src={logo} alt="" />
+        </LogoLink>
+        <HomeLink to={data.site.siteMetadata.entryPoint}>{title}</HomeLink>
+      </>
+    )}
+  />
+);
+GoHome.propTypes = {
+  title: PropTypes.string.isRequired
+};
+
 const Logo = ({ title, subtitle, className }) => (
   <Wrapper className={className}>
-    <LogoLink to="/" title="Go home">
-      <LogoImg src={logo} alt="" />
-    </LogoLink>
-    <HomeLink to="/">{title}</HomeLink>
+    <GoHome title={title} />
     <Subtitle>{subtitle}</Subtitle>
   </Wrapper>
 );
 Logo.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   subtitle: PropTypes.string.isRequired,
   className: PropTypes.string
 };

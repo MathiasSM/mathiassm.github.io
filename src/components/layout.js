@@ -84,6 +84,7 @@ const query = graphql`
         description
         owner
         since
+        now
         sections {
           title
           path
