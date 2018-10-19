@@ -21,14 +21,3 @@ From the start of my CS studies at USB, I've always picked the courses that most
 + **Developed tools** to make some programming tasks easier. 
 
 I like to spend time away from code, so I watch movies, enjoy anime series and write stories from time to time.
-
-| Left | Center | Right |
-|:-----|:------:|------:|
-|aaa   |bbb     |ccc    |
-|ddd   |eee     |fff    |
-|aaa   |bbb     |ccc    |
-|ddd   |eee     |fff    |
-|aaa   |bbb     |ccc    |
-|ddd   |eee     |fff    |
-|aaa   |bbb     |ccc    |
-|ddd   |eee     |fff    |
