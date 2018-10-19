@@ -5,17 +5,32 @@ import PropTypes from "prop-types";
 import Layout from "components/layout";
 import BlogItem from "components/blogitem";
 import BlogList from "components/bloglist";
+import SEO from "components/seo";
 
 const BlogPage = ({
   data: {
     postList: { posts },
     blogPage: {
-      frontmatter: { title = "Blog" },
+      frontmatter: {
+        title = "Blog",
+        shareTitle,
+        description,
+        shareDescription
+      },
       html: __html
     }
   }
 }) => (
   <Layout>
+    <SEO
+      title={title}
+      description={description}
+      og={{
+        title: shareTitle || title,
+        type: "blog",
+        description: shareDescription || description
+      }}
+    />
     <main>
       <header>
         <h1>{title}</h1>
@@ -56,6 +71,9 @@ export const query = graphql`
     blogPage: markdownRemark(frontmatter: { path: { eq: "/blog" } }) {
       frontmatter {
         title
+        shareTitle
+        description
+        shareDescription
       }
       html
     }

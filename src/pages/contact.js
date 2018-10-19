@@ -5,17 +5,27 @@ import PropTypes from "prop-types";
 import Layout from "components/layout";
 import TextBody from "components/textbody";
 import Profiles from "components/profiles";
+import SEO from "components/seo";
 
 const ContactPage = ({
   data: {
     page: {
       html: __html,
-      frontmatter: { title }
+      frontmatter: { title, description, shareTitle, shareDescription }
     },
     social: { profiles }
   }
 }) => (
   <Layout>
+    <SEO
+      title={title}
+      description={description}
+      og={{
+        title: shareTitle || title,
+        description: shareDescription || description
+      }}
+    />
+
     <main>
       <h1>{title}</h1>
       <TextBody dangerouslySetInnerHTML={{ __html }} />
@@ -44,6 +54,9 @@ export const query = graphql`
     page: markdownRemark(frontmatter: { path: { eq: "/contact" } }) {
       frontmatter {
         title
+        description
+        shareTitle
+        shareDescription
       }
       html
     }

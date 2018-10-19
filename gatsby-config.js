@@ -34,6 +34,23 @@ const mapping = {
  * List of gatsby plugins we use
  */
 const gatsbyPlugins = [
+  {
+    resolve: "gatsby-plugin-node-fields",
+    options: {
+      descriptors: [
+        {
+          predicate: node => node.internal.type == "MarkdownRemark",
+          fields: [
+            {
+              name: "author",
+              getter: node => node.frontmatter.author,
+              defaultValue: siteMetadata.owner
+            }
+          ]
+        }
+      ]
+    }
+  },
   // Generate sitemap in production. Defaults are ok
   "gatsby-plugin-sitemap",
   // Handle images

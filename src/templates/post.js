@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 import Layout from "components/layout";
 import TableOfContents from "components/toc";
+import SEO from "components/seo";
 
 const Header = styled.header``;
 
@@ -38,18 +39,45 @@ PostHeader.propTypes = {
 const PostTemplate = ({
   data: {
     post: {
-      fields,
+      fields: { author, lastModifiedAt, ...fields },
       tableOfContents,
-      frontmatter: { TOC, title, ...frontmatter },
+      frontmatter: {
+        TOC,
+        title,
+        description,
+        shareTitle,
+        shareDescription,
+        createdAt,
+        createdAtString
+      },
       html: __html
     }
   }
 }) => (
   <Layout>
+    <SEO
+      title={title}
+      description={description}
+      og={{
+        title: shareTitle,
+        description: shareDescription,
+        author,
+        type: "article",
+        published_time: createdAt,
+        modified_time: lastModifiedAt
+      }}
+    />
     <main>
       <article>
         <PostHeader title={title} />
-        <PostMeta {...frontmatter} {...fields} />
+        <PostMeta
+          {...{
+            createdAt,
+            createdAtString,
+            lastModifiedAt
+          }}
+          {...fields}
+        />
         {TOC && <TableOfContents {...{ tableOfContents }} />}
         <div dangerouslySetInnerHTML={{ __html }} />
       </article>
@@ -78,12 +106,16 @@ export const quary = graphql`
       tableOfContents(pathToSlugField: "frontmatter.path")
       fields {
         lastModifiedAt(formatString: "YYYY-MM-DD")
+        author
       }
       frontmatter {
         createdAtString: date(fromNow: true)
         createdAt: date(formatString: "YYYY-MM-DD")
         path
         title
+        description
+        shareTitle
+        shareDescription
         TOC
       }
     }

@@ -2,6 +2,8 @@ import { graphql } from "gatsby";
 import React from "react";
 import PropTypes from "prop-types";
 
+import SEO from "components/seo";
+
 import Layout from "components/layout";
 import TextBody from "components/textbody";
 
@@ -14,6 +16,7 @@ const NotFoundPage = ({
   }
 }) => (
   <Layout>
+    <SEO title="Not Found" />
     <main>
       <h1>{title}</h1>
       <TextBody dangerouslySetInnerHTML={{ __html }} />

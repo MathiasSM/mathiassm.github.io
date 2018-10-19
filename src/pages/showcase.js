@@ -5,18 +5,32 @@ import PropTypes from "prop-types";
 import Layout from "components/layout";
 import ProjectCard from "components/projectcard";
 import List from "components/bloglist";
+import SEO from "components/seo";
 
 const ShowcasePage = ({
   data: {
     activeProjectsList,
     onholdProjectsList,
     showcasePage: {
-      frontmatter: { title = "Showcase" },
+      frontmatter: {
+        title = "Showcase",
+        description,
+        shareDescription,
+        shareTitle
+      },
       html: __html
     }
   }
 }) => (
   <Layout>
+    <SEO
+      title={title}
+      description={description}
+      og={{
+        title: shareTitle,
+        description: shareDescription
+      }}
+    />
     <main>
       <header>
         <h1>{title}</h1>
@@ -70,6 +84,9 @@ export const query = graphql`
     showcasePage: markdownRemark(frontmatter: { path: { eq: "/showcase" } }) {
       frontmatter {
         title
+        description
+        shareTitle
+        shareDescription
       }
       html
     }

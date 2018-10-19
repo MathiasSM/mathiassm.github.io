@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 import media from "utils/media";
 
-import Head from "components/head";
+import SEO from "components/seo";
 import Logo from "components/logo";
 import Menu from "components/menu";
 import Content from "components/content";
@@ -56,7 +56,12 @@ const LayoutComp = ({
   }
 }) => (
   <Grid>
-    <Head {...siteMetadata} />
+    <SEO
+      defaultTitle={`${siteMetadata.title} - ${siteMetadata.description}`}
+      titleTemplate={`%s - ${siteMetadata.title}`}
+      og={{ type: "website", site_name: siteMetadata.title }}
+      {...siteMetadata}
+    />
     <GriddedLogo {...siteMetadata} />
     <GriddedMenu {...siteMetadata} />
     <GriddedContent {...siteMetadata}>{children}</GriddedContent>
