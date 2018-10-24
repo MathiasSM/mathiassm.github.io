@@ -14,10 +14,10 @@ From the start of my CS studies at USB, I've always picked the courses that most
 
 + **Worked remotely** for clients in different countries and timezones,
 
++ **Developed tools** to make some programming tasks easier. 
+
 + **Given classes** to newcomers to Computer Science and Programming,
 
 + **Led teams** of 8+ members for Software Development, and
-
-+ **Developed tools** to make some programming tasks easier. 
 
 I like to spend time away from code, so I watch movies, enjoy anime series and write stories from time to time.
