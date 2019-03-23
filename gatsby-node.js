@@ -49,7 +49,7 @@ exports.createPages = ({ actions, graphql }) => {
   });
 };
 
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
+exports.onCreateWebpackConfig = ({ actions }) => {
   // Add src folders to easy imports
   actions.setWebpackConfig({
     resolve: {

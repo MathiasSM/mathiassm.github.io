@@ -18,15 +18,16 @@ const ContentDiv = styled.div`
   ${media.bigdesktop``}
 `;
 
-const Content = ({ owner, since, children, className }) => (
+const Content = ({ owner, since, now, children, className }) => (
   <ContentDiv className={className}>
     {children}
-    <Footer owner={owner} since={since} />
+    <Footer owner={owner} since={since} now={now} />
   </ContentDiv>
 );
 Content.propTypes = {
   owner: PropTypes.string,
   since: PropTypes.number,
+  now: PropTypes.number,
   children: PropTypes.node,
   className: PropTypes.string
 };

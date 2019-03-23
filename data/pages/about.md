@@ -6,7 +6,7 @@ type: page
 
 Hello there! 
 
-My name is Mathias (with a mute "h"), and I'm a Computer Science student from _Universidad Simón Bolívar_, with only a few months left to get my degree. I'm currently ~~living~~ surviving in Venezuela, while I work remotely as a Full Stack Developer. I intend to leave the country after I graduate, but I haven't made up my mind about where to go yet.
+My name is Mathias (with a mute "h"), and I'm a Computer Science student from _Universidad Simón Bolívar_, with only a few months left to get my degree. I'm currently ~~living~~ surviving in Venezuela, but soon to be relocating to Europe (if all goes well).
 
 From the start of my CS studies at USB, I've always picked the courses that most interested me, when given the chance: Artificial Intelligence, Programming Languages and especially Databases Design and Architecture. The rest of my time on the CS world, I've 
 
