@@ -1,6 +1,6 @@
 {
   "name": "MathiasSM",
-  "version": "0.9.1",
+  "version": "0.10.1",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
     "babel-plugin-styled-components": "^1.10.6",
