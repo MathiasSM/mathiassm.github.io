@@ -22,7 +22,7 @@ const AboutPage = ({
 AboutPage.propTypes = {
   data: PropTypes.shape({
     indexContent: PropTypes.shape({
-      fontmatter: PropTypes.shape({ title: PropTypes.string }),
+      frontmatter: PropTypes.shape({ title: PropTypes.string }).isRequired,
       html: PropTypes.string
     }).isRequired
   })

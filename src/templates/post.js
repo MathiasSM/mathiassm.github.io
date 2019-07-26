@@ -40,7 +40,6 @@ const PostTemplate = ({
   data: {
     post: {
       fields: { author, lastModifiedAt, ...fields },
-      tableOfContents,
       frontmatter: {
         TOC,
         title,
@@ -50,6 +49,7 @@ const PostTemplate = ({
         createdAt,
         createdAtString
       },
+      tableOfContents,
       html: __html
     }
   }
@@ -91,8 +91,14 @@ PostTemplate.propTypes = {
       fields: PropTypes.object,
       frontmatter: PropTypes.shape({
         TOC: PropTypes.bool,
-        title: PropTypes.string
-      })
+        title: PropTypes.string,
+        description: PropTypes.string,
+        shareTitle: PropTypes.string,
+        shareDescription: PropTypes.string,
+        createdAt: PropTypes.string,
+        createdAtString: PropTypes.string
+      }),
+      tableOfContents: PropTypes.string
     })
   })
 };

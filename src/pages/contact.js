@@ -39,7 +39,12 @@ ContactPage.propTypes = {
   data: PropTypes.shape({
     page: PropTypes.shape({
       html: PropTypes.string,
-      frontmatter: PropTypes.shape({ title: PropTypes.string })
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string,
+        shareTitle: PropTypes.string,
+        description: PropTypes.string,
+        shareDescription: PropTypes.string
+      })
     }),
     social: PropTypes.shape({
       profiles: PropTypes.array.isRequired

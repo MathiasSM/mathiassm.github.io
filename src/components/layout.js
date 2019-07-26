@@ -71,7 +71,8 @@ const LayoutComp = ({
 LayoutComp.propTypes = {
   children: PropTypes.node,
   data: PropTypes.shape({
-    site: PropTypes.shape({ siteMetadata: PropTypes.object })
+    site: PropTypes.shape({ siteMetadata: PropTypes.object }),
+    social: PropTypes.object
   })
 };
 

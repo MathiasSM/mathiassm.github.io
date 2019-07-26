@@ -19,7 +19,7 @@ const ContentDiv = styled.div`
 `;
 
 const Content = ({ owner, since, now, children, className }) => (
-  <ContentDiv className={className}>
+  <ContentDiv id="content" className={className}>
     {children}
     <Footer owner={owner} since={since} now={now} />
   </ContentDiv>

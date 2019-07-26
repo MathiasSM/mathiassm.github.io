@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 // FA Icons
-import { Twitter } from "styled-icons/fa-brands/Twitter.cjs";
-import { Github } from "styled-icons/fa-brands/Github.cjs";
-import { MediumM as Medium } from "styled-icons/fa-brands/MediumM.cjs";
-import { Linkedin as LinkedIn } from "styled-icons/fa-brands/Linkedin.cjs";
-import { Imdb as IMDb } from "styled-icons/fa-brands/Imdb.cjs";
+import { Twitter } from "styled-icons/fa-brands/Twitter";
+import { Github } from "styled-icons/fa-brands/Github";
+import { MediumM as Medium } from "styled-icons/fa-brands/MediumM";
+import { Linkedin as LinkedIn } from "styled-icons/fa-brands/Linkedin";
+import { Imdb as IMDb } from "styled-icons/fa-brands/Imdb";
 
 import MAL from "images/extra/MAL";
 

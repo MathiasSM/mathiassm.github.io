@@ -30,7 +30,8 @@ const MenuNav = withColors(
   `
 );
 
-const LinkComp = ({ color, ...props }) => <Link {...props} />;
+const LinkComp = ({ ...props }) => <Link {...props} />;
+
 const MenuLink = withColors(
   c => ({ accent: c.accent.pure, primary: c.primary.pure }),
   styled(LinkComp).attrs({ activeClassName })`
@@ -58,7 +59,7 @@ const MenuLink = withColors(
 const Menu = ({ sections, className }) => (
   <MenuNav className={className}>
     {sections.map(({ path, title }) => (
-      <MenuLink key={title} to={path}>
+      <MenuLink key={title} to={path} partiallyActive>
         {title}
       </MenuLink>
     ))}

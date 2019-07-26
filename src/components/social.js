@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 // FA Icons
-import { Twitter } from "styled-icons/fa-brands/Twitter.cjs";
-import { Github } from "styled-icons/fa-brands/Github.cjs";
-import { MediumM as Medium } from "styled-icons/fa-brands/MediumM.cjs";
-import { Linkedin as LinkedIn } from "styled-icons/fa-brands/Linkedin.cjs";
+import { Twitter } from "styled-icons/fa-brands/Twitter";
+import { Github } from "styled-icons/fa-brands/Github";
+import { MediumM as Medium } from "styled-icons/fa-brands/MediumM";
+import { Linkedin as LinkedIn } from "styled-icons/fa-brands/Linkedin";
 
 import withColors from "components/withcolors";
 import media from "utils/media";
@@ -70,9 +70,7 @@ const Social = ({ profiles, className }) => (
 const validSocialSite = (props, propName, componentName) =>
   !!socialIcons[props[propName]] ||
   new Error(
-    `Invalid social site '${
-      props[propName]
-    }' supplied to '${componentName}'.  Icon is not imported in 'Social' component file.`
+    `Invalid social site '${props[propName]}' supplied to '${componentName}'.  Icon is not imported in 'Social' component file.`
   );
 
 Social.propTypes = {
