@@ -5,7 +5,7 @@ function getModificationDate(dir, file) {
   return git(dir)
     .log({ file })
     .then(log => (log.latest ? log.latest.date : new Date()))
-    .catch(e => {
+    .catch(() => {
       Promise.reject(`Couldn't find git log for ${file}`);
     });
 }
@@ -14,7 +14,7 @@ function getModificationDate(dir, file) {
  * Adds git last commit time to each markdown file as "lastModifiedAt"
  */
 exports.onCreateNode = ({ node, actions }) => {
-  const { createNode, createNodeField } = actions;
+  const { createNodeField } = actions;
 
   const {
     fileAbsolutePath: filePath,

@@ -8,7 +8,12 @@ plugins:
 parser: "babel-eslint"
 parserOptions:
   sourceType: "module"
+  ecmaFeatures:
+    jsx: true
 env:
   es6: true
   node: true
   browser: true
+settings:
+  react:
+    version: "16.8"

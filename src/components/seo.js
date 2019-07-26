@@ -43,13 +43,16 @@ SEO.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
   location: PropTypes.shape({
-    href: PropTypes.string
+    href: PropTypes.string,
+    pathname: PropTypes.string,
+    origin: PropTypes.string
   }),
   og: PropTypes.shape({
     title: PropTypes.string,
     type: PropTypes.string,
     url: PropTypes.string,
-    image: PropTypes.string
+    image: PropTypes.string,
+    description: PropTypes.string
   }).isRequired
 };
 SEO.defaultProps = {

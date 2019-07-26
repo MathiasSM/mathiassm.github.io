@@ -107,7 +107,8 @@ ProjectCard.propTypes = {
   title: PropTypes.string.isRequired,
   status: PropTypes.shape({
     name: PropTypes.string,
-    description: PropTypes.string
+    description: PropTypes.string,
+    lastString: PropTypes.string
   }),
   description: PropTypes.shape({
     short: PropTypes.string.isRequired,

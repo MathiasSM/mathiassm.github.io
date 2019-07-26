@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { CaretSquareDown } from "styled-icons/fa-regular/CaretSquareDown.cjs";
-import { CaretSquareUp } from "styled-icons/fa-regular/CaretSquareUp.cjs";
+import { CaretSquareDown } from "styled-icons/fa-regular/CaretSquareDown";
+import { CaretSquareUp } from "styled-icons/fa-regular/CaretSquareUp";
 
 import withColor from "components/withcolors";
 import { rhythm } from "utils/typography";

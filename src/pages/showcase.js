@@ -28,7 +28,7 @@ const ShowcasePage = ({
       description={description}
       og={{
         title: shareTitle,
-        description: shareDescription
+        description: shareDescription || description
       }}
     />
     <main>
@@ -72,7 +72,12 @@ ShowcasePage.propTypes = {
     }),
     showcasePage: PropTypes.shape({
       html: PropTypes.string,
-      frontmatter: PropTypes.shape({ title: PropTypes.string })
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string,
+        shareTitle: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+        description: PropTypes.string,
+        shareDescription: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+      })
     })
   })
 };
