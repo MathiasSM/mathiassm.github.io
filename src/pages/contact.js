@@ -41,9 +41,9 @@ ContactPage.propTypes = {
       html: PropTypes.string,
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
-        shareTitle: PropTypes.string,
+        shareTitle: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
         description: PropTypes.string,
-        shareDescription: PropTypes.string
+        shareDescription: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
       })
     }),
     social: PropTypes.shape({

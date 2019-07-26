@@ -4,7 +4,6 @@ function checkHash(location) {
   let hash = location.hash;
   if (hash) {
     const goto = document.getElementById(hash.replace("#", ""));
-    console.log(goto);
     if (goto) {
       document.getElementById("content").scrollTo(0, goto.offsetTop);
       return false;

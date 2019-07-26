@@ -3,16 +3,26 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Layout from "components/layout";
+import SEO from "components/seo";
 
 const AboutPage = ({
   data: {
     indexContent: {
-      frontmatter: { title },
+      frontmatter: { title, shareTitle, description, shareDescription },
       html: __html
     }
   }
 }) => (
   <Layout>
+    <SEO
+      title={title}
+      description={description}
+      og={{
+        title: shareTitle || title,
+        type: "blog",
+        description: shareDescription || description
+      }}
+    />
     <main>
       <h1>{title}</h1>
       <div dangerouslySetInnerHTML={{ __html }} />
@@ -22,7 +32,15 @@ const AboutPage = ({
 AboutPage.propTypes = {
   data: PropTypes.shape({
     indexContent: PropTypes.shape({
-      frontmatter: PropTypes.shape({ title: PropTypes.string }).isRequired,
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string,
+        shareTitle: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+        description: PropTypes.string,
+        shareDescription: PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.bool
+        ])
+      }).isRequired,
       html: PropTypes.string
     }).isRequired
   })
@@ -35,6 +53,9 @@ export const query = graphql`
     indexContent: markdownRemark(frontmatter: { path: { eq: "/" } }) {
       frontmatter {
         title
+        shareTitle
+        description
+        shareDescription
       }
       html
     }
