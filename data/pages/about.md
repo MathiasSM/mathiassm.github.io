@@ -5,7 +5,7 @@ path: "/"
 type: page
 
 shareTitle: "Mathias San Miguel - SDE"
-shareDescription: false
+# shareDescription: false
 ---
 
 Hello there! 

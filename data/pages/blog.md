@@ -5,7 +5,7 @@ type: page
 path: "/blog"
 
 shareTitle: "Mathias San Miguel's Blog"
-shareDescription: false
+# shareDescription: false
 ---
 
 
