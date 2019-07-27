@@ -6,7 +6,7 @@ type: page
 
 Hello there! 
 
-My name is Mathias (with a mute "h"), and I'm a Software Developer Engineer, graduated from _Universidad Simón Bolívar_ with a Computer Science degree on July 2019. I'm currently ~~living~~ surviving in Venezuela, but will soon relocate to Europe, if all goes well!
+My name is Mathias (with a mute "h"), and I'm a Software Development Engineer, graduated from _Universidad Simón Bolívar_ with a Computer Science degree on July 2019. I'm currently ~~living~~ surviving in Venezuela, but will soon relocate to Europe, if all goes well!
 
 From the start of my CS studies at USB, I've always picked the courses that most interested me, when I was given the chance: Artificial Intelligence, Programming Languages and especially Databases Design and Architecture. The rest of my time on the CS world, I've 
 
