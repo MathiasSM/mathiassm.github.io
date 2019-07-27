@@ -1,14 +1,18 @@
 ---
-title: Mathias San Miguel
+title: "Mathias San Miguel"
+description: "Software Development Engineer. Programming Languages, Databases and Artificial Intelligence."
 path: "/"
 type: page
+
+shareTitle: "Mathias San Miguel - SDE"
+shareDescription: false
 ---
 
 Hello there! 
 
-My name is Mathias (with a mute "h"), and I'm a Software Development Engineer, graduated from _Universidad Simón Bolívar_ with a Computer Science degree on July 2019. I'm currently ~~living~~ surviving in Venezuela, but will soon relocate to Europe, if all goes well!
+My name is Mathias (with a mute "h"), and I'm a Software Development Engineer, graduated on July 2019 from _Universidad Simón Bolívar_ with a Computer Science degree. I'm currently ~~living~~ surviving in Venezuela, but if all goes well, I'll soon be relocating to Europe!
 
-From the start of my CS studies at USB, I've always picked the courses that most interested me, when I was given the chance: Artificial Intelligence, Programming Languages and especially Databases Design and Architecture. The rest of my time on the CS world, I've 
+From the start of my CS studies at USB, I always picked the courses that most interested me. I chose the specializations in Artificial Intelligence, Programming Languages and Databases Design and Architecture. I grew fond of the last two, specially. The rest of my time on the CS world, I've 
 
 + **Participated in coding competitions** such as ACM-ICPC and IOI,
 
