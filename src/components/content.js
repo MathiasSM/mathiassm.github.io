@@ -29,7 +29,7 @@ Content.propTypes = {
   since: PropTypes.number,
   now: PropTypes.number,
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default Content;

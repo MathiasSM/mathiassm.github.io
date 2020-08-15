@@ -2,21 +2,21 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { CaretSquareDown } from "styled-icons/fa-regular/CaretSquareDown";
-import { CaretSquareUp } from "styled-icons/fa-regular/CaretSquareUp";
+import { CaretSquareDown } from "@styled-icons/fa-regular/CaretSquareDown";
+import { CaretSquareUp } from "@styled-icons/fa-regular/CaretSquareUp";
 
 import withColor from "components/withcolors";
 import { rhythm } from "utils/typography";
 
 const ShowToC = withColor(
-  c => c.primary.black,
+  (c) => c.primary.black,
   styled.button`
     background: none;
     border: none;
     outline: none;
     width: 100%;
     text-align: center;
-    color: ${props => props.color};
+    color: ${(props) => props.color};
   `
 );
 
@@ -36,9 +36,9 @@ const ToCHTML = styled.div`
 `;
 
 const ToCContainer = withColor(
-  c => c.secondary.white,
+  (c) => c.secondary.white,
   styled.div`
-    background: ${props => props.color};
+    background: ${(props) => props.color};
     margin: ${rhythm(1)} 0;
     padding: ${rhythm(1)};
   `
@@ -47,7 +47,7 @@ const ToCContainer = withColor(
 export default class TableOfContents extends Component {
   static propTypes = {
     tableOfContents: PropTypes.string.isRequired,
-    show: PropTypes.bool
+    show: PropTypes.bool,
   };
   state = { show: this.props.show || false };
   toggle = () => {

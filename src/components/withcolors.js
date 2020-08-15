@@ -33,13 +33,13 @@ const query = graphql`
   }
 `;
 
-const id = a => a;
+const id = (a) => a;
 
 const withColors = (getColors = id, Comp) => {
   const WithColors = ({ ...props }) => (
     <StaticQuery
       query={query}
-      render={data => {
+      render={(data) => {
         const color = getColors(data.site.siteMetadata.color);
         return <Comp {...{ color }} {...props} />;
       }}

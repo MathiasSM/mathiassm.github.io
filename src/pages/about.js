@@ -9,9 +9,9 @@ const AboutPage = ({
   data: {
     indexContent: {
       frontmatter: { title, shareTitle, description, shareDescription },
-      html: __html
-    }
-  }
+      html: __html,
+    },
+  },
 }) => (
   <Layout>
     <SEO
@@ -20,7 +20,7 @@ const AboutPage = ({
       og={{
         title: shareTitle || title,
         type: "blog",
-        description: shareDescription || description
+        description: shareDescription || description,
       }}
     />
     <main>
@@ -38,12 +38,12 @@ AboutPage.propTypes = {
         description: PropTypes.string,
         shareDescription: PropTypes.oneOfType([
           PropTypes.string,
-          PropTypes.bool
-        ])
+          PropTypes.bool,
+        ]),
       }).isRequired,
-      html: PropTypes.string
-    }).isRequired
-  })
+      html: PropTypes.string,
+    }).isRequired,
+  }),
 };
 
 export default AboutPage;

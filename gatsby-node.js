@@ -28,7 +28,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   const component = path.resolve(`src/templates/post.js`);
 
-  return graphql(allPostsQuery).then(result => {
+  return graphql(allPostsQuery).then((result) => {
     if (result.errors) {
       return Promise.reject(result.errors);
     }
@@ -39,13 +39,19 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject("No blog posts found");
     }
 
-    posts.edges.forEach(({ node: { frontmatter: { path } } }) => {
-      createPage({
-        path,
-        component,
-        context: {}
-      });
-    });
+    posts.edges.forEach(
+      ({
+        node: {
+          frontmatter: { path },
+        },
+      }) => {
+        createPage({
+          path,
+          component,
+          context: {},
+        });
+      }
+    );
   });
 };
 
@@ -53,7 +59,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   // Add src folders to easy imports
   actions.setWebpackConfig({
     resolve: {
-      modules: [path.resolve(__dirname, "src"), "node_modules"]
-    }
+      modules: [path.resolve(__dirname, "src"), "node_modules"],
+    },
   });
 };

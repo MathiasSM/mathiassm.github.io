@@ -24,7 +24,7 @@ const PostMeta = ({ createdAt, createdAtString, lastModifiedAt }) => (
 PostMeta.propTypes = {
   createdAt: PropTypes.string.isRequired,
   createdAtString: PropTypes.string.isRequired,
-  lastModifiedAt: PropTypes.string.isRequired
+  lastModifiedAt: PropTypes.string.isRequired,
 };
 
 const PostHeader = ({ title }) => (
@@ -33,7 +33,7 @@ const PostHeader = ({ title }) => (
   </Header>
 );
 PostHeader.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 const PostTemplate = ({
@@ -47,12 +47,12 @@ const PostTemplate = ({
         shareTitle,
         shareDescription,
         createdAt,
-        createdAtString
+        createdAtString,
       },
       tableOfContents,
-      html: __html
-    }
-  }
+      html: __html,
+    },
+  },
 }) => (
   <Layout>
     <SEO
@@ -64,7 +64,7 @@ const PostTemplate = ({
         author,
         type: "article",
         published_time: createdAt,
-        modified_time: lastModifiedAt
+        modified_time: lastModifiedAt,
       }}
     />
     <main>
@@ -74,7 +74,7 @@ const PostTemplate = ({
           {...{
             createdAt,
             createdAtString,
-            lastModifiedAt
+            lastModifiedAt,
           }}
           {...fields}
         />
@@ -96,11 +96,11 @@ PostTemplate.propTypes = {
         shareTitle: PropTypes.string,
         shareDescription: PropTypes.string,
         createdAt: PropTypes.string,
-        createdAtString: PropTypes.string
+        createdAtString: PropTypes.string,
       }),
-      tableOfContents: PropTypes.string
-    })
-  })
+      tableOfContents: PropTypes.string,
+    }),
+  }),
 };
 
 export default PostTemplate;

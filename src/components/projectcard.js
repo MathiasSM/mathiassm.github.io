@@ -13,12 +13,12 @@ const ListItem = styled.li`
 `;
 
 const ExtLink = withColors(
-  c => c.accent.pure,
+  (c) => c.accent.pure,
   styled.a`
     color: inherit;
     &:hover,
     &:focus {
-      color: ${props => props.color};
+      color: ${(props) => props.color};
     }
   `
 );
@@ -50,7 +50,7 @@ const Status = ({ name, description }) => {
 };
 Status.propTypes = {
   name: PropTypes.string,
-  description: PropTypes.string
+  description: PropTypes.string,
 };
 
 const Short = styled.div`
@@ -67,7 +67,7 @@ const ProjectCard = ({
   href,
   title,
   status: { lastString, ...status },
-  description: { long, short }
+  description: { long, short },
 }) => (
   <ListItem>
     <ExtLink href={href}>
@@ -108,12 +108,12 @@ ProjectCard.propTypes = {
   status: PropTypes.shape({
     name: PropTypes.string,
     description: PropTypes.string,
-    lastString: PropTypes.string
+    lastString: PropTypes.string,
   }),
   description: PropTypes.shape({
     short: PropTypes.string.isRequired,
-    long: PropTypes.string
-  }).isRequired
+    long: PropTypes.string,
+  }).isRequired,
 };
 
 export default ProjectCard;

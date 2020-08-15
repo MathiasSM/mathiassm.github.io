@@ -12,8 +12,8 @@ const generate = ({ id, hsl }) => {
       dark: c.darken(),
       pure: c,
       light: c.brighten(),
-      white: chroma.mix(white, c, 0.2)
-    }
+      white: chroma.mix(white, c, 0.2),
+    },
   };
 };
 
@@ -25,7 +25,7 @@ const getHexes = ({ id, colors }) => {
   return { [id]: hexes };
 };
 
-const getColors = colorJson =>
+const getColors = (colorJson) =>
   colorJson
     .reduce((acc, color) => [...acc, generate(color)], [])
     .reduce((acc, colorSet) => ({ ...acc, ...getHexes(colorSet) }), {});

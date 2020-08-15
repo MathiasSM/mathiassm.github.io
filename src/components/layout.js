@@ -52,8 +52,8 @@ const LayoutComp = ({
   children,
   data: {
     site: { siteMetadata },
-    social
-  }
+    social,
+  },
 }) => (
   <Grid>
     <SEO
@@ -72,8 +72,8 @@ LayoutComp.propTypes = {
   children: PropTypes.node,
   data: PropTypes.shape({
     site: PropTypes.shape({ siteMetadata: PropTypes.object }),
-    social: PropTypes.object
-  })
+    social: PropTypes.object,
+  }),
 };
 
 const query = graphql`
@@ -98,7 +98,7 @@ const query = graphql`
 const Layout = ({ children }) => (
   <StaticQuery
     query={query}
-    render={data => (
+    render={(data) => (
       <LayoutComp data={data}>
         <GlobalStyles />
         {children}
@@ -107,7 +107,7 @@ const Layout = ({ children }) => (
   />
 );
 Layout.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default Layout;

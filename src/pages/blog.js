@@ -15,11 +15,11 @@ const BlogPage = ({
         title = "Blog",
         shareTitle,
         description,
-        shareDescription
+        shareDescription,
       },
-      html: __html
-    }
-  }
+      html: __html,
+    },
+  },
 }) => (
   <Layout>
     <SEO
@@ -28,7 +28,7 @@ const BlogPage = ({
       og={{
         title: shareTitle || title,
         type: "blog",
-        description: shareDescription || description
+        description: shareDescription || description,
       }}
     />
     <main>
@@ -41,8 +41,8 @@ const BlogPage = ({
           ({
             post: {
               frontmatter: { path, ...frontmatter },
-              fields
-            }
+              fields,
+            },
           }) => (
             <BlogItem key={path} path={path} {...frontmatter} {...fields} />
           )
@@ -55,7 +55,7 @@ const BlogPage = ({
 BlogPage.propTypes = {
   data: PropTypes.shape({
     postList: PropTypes.shape({
-      posts: PropTypes.array
+      posts: PropTypes.array,
     }),
     blogPage: PropTypes.shape({
       html: PropTypes.string,
@@ -63,10 +63,13 @@ BlogPage.propTypes = {
         title: PropTypes.string,
         shareTitle: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
         description: PropTypes.string,
-        shareDescription: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
-      })
-    })
-  })
+        shareDescription: PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.bool,
+        ]),
+      }),
+    }),
+  }),
 };
 
 export default BlogPage;

@@ -15,12 +15,12 @@ const ListItem = styled.li`
 `;
 
 const ArtLink = withColors(
-  c => c.accent.pure,
+  (c) => c.accent.pure,
   styled(Link)`
     color: inherit;
     &:hover,
     &:focus {
-      color: ${props => props.color};
+      color: ${(props) => props.color};
     }
   `
 );
@@ -45,7 +45,7 @@ const BlogItem = ({
   createdAtString,
   path,
   title,
-  description
+  description,
 }) => (
   <ListItem>
     <article>
@@ -73,7 +73,7 @@ BlogItem.propTypes = {
   createdAtString: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.string
+  description: PropTypes.string,
 };
 
 export default BlogItem;

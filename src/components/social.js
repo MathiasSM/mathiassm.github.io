@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 // FA Icons
-import { Twitter } from "styled-icons/fa-brands/Twitter";
-import { Github } from "styled-icons/fa-brands/Github";
-import { MediumM as Medium } from "styled-icons/fa-brands/MediumM";
-import { Linkedin as LinkedIn } from "styled-icons/fa-brands/Linkedin";
+import { Twitter } from "@styled-icons/fa-brands/Twitter";
+import { Github } from "@styled-icons/fa-brands/Github";
+import { MediumM as Medium } from "@styled-icons/fa-brands/MediumM";
+import { Linkedin as LinkedIn } from "@styled-icons/fa-brands/Linkedin";
 
 import withColors from "components/withcolors";
 import media from "utils/media";
@@ -17,11 +17,11 @@ const socialIcons = {
   Twitter,
   Github,
   Medium,
-  LinkedIn
+  LinkedIn,
 };
 
 const SocialList = withColors(
-  c => c.primary.pure,
+  (c) => c.primary.pure,
   styled.ul`
     margin: 0;
     padding: 1rem;
@@ -32,7 +32,7 @@ const SocialList = withColors(
     list-style: none;
     ${media.tablet`
       a {color: white}
-      background: ${props => props.color};
+      background: ${(props) => props.color};
     `}
     ${media.desktop``}
     ${media.bigdesktop``}
@@ -44,8 +44,8 @@ const Social = ({ profiles, className }) => (
     {profiles.map(
       ({
         node: {
-          profile: { title, href, username, description }
-        }
+          profile: { title, href, username, description },
+        },
       }) => {
         const SocialIcon = styled(socialIcons[title])`
           padding: ${rhythm(0.5)} 0 0;
@@ -81,12 +81,12 @@ Social.propTypes = {
           title: validSocialSite,
           href: PropTypes.string.isRequired,
           username: PropTypes.string.isRequired,
-          description: PropTypes.string
-        })
-      })
+          description: PropTypes.string,
+        }),
+      }),
     }).isRequired
   ),
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default Social;

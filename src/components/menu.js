@@ -10,9 +10,9 @@ import { rhythm } from "utils/typography";
 const activeClassName = "nav-active";
 
 const MenuNav = withColors(
-  c => c.primary.pure,
+  (c) => c.primary.pure,
   styled.nav`
-    background: ${props => props.color};
+    background: ${(props) => props.color};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,7 +33,7 @@ const MenuNav = withColors(
 const LinkComp = ({ ...props }) => <Link {...props} />;
 
 const MenuLink = withColors(
-  c => ({ accent: c.accent.pure, primary: c.primary.pure }),
+  (c) => ({ accent: c.accent.pure, primary: c.primary.pure }),
   styled(LinkComp).attrs({ activeClassName })`
     font-size: 1.2em;
     margin: 0;
@@ -41,14 +41,14 @@ const MenuLink = withColors(
     padding: ${rhythm(0.5)};
     &:hover {
       background: white;
-      color: ${props => props.color.primary};
+      color: ${(props) => props.color.primary};
     }
     &.${activeClassName} {
       background: white;
-      color: ${props => props.color.accent};
+      color: ${(props) => props.color.accent};
     }
     &.${activeClassName}:hover {
-      color: ${props => props.color.accent};
+      color: ${(props) => props.color.accent};
     }
     ${media.desktop`
       padding: ${rhythm(0.5)};
@@ -70,10 +70,10 @@ Menu.propTypes = {
   sections: PropTypes.arrayOf(
     PropTypes.shape({
       path: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired
+      title: PropTypes.string.isRequired,
     }).isRequired
   ),
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default Menu;

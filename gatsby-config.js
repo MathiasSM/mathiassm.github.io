@@ -18,10 +18,10 @@ const siteMetadata = {
   sections: [
     { title: "Blog", path: "/blog" },
     { title: "Showcase", path: "/showcase" },
-    { title: "Contact", path: "/contact" }
+    { title: "Contact", path: "/contact" },
   ],
   siteUrl: process.env.SITE_URL,
-  color
+  color,
 };
 
 /**
@@ -29,7 +29,7 @@ const siteMetadata = {
  */
 const mapping = {
   "ProjectsYaml.project.team": "PeopleYaml",
-  "ProjectsYaml.project.status": "StatusesYaml"
+  "ProjectsYaml.project.status": "StatusesYaml",
 };
 
 /**
@@ -41,17 +41,17 @@ const gatsbyPlugins = [
     options: {
       descriptors: [
         {
-          predicate: node => node.internal.type == "MarkdownRemark",
+          predicate: (node) => node.internal.type == "MarkdownRemark",
           fields: [
             {
               name: "author",
-              getter: node => node.frontmatter.author,
-              defaultValue: siteMetadata.owner
-            }
-          ]
-        }
-      ]
-    }
+              getter: (node) => node.frontmatter.author,
+              defaultValue: siteMetadata.owner,
+            },
+          ],
+        },
+      ],
+    },
   },
   // Generate sitemap in production. Defaults are ok
   "gatsby-plugin-sitemap",
@@ -64,19 +64,19 @@ const gatsbyPlugins = [
   // Inject font styles
   {
     resolve: "gatsby-plugin-styled-components",
-    options: { pure: true }
+    options: { pure: true },
   },
   {
     resolve: "gatsby-plugin-typography",
     options: {
       pathToConfigModule: "src/utils/typography.js",
-      omitGoogleFont: true
-    }
+      omitGoogleFont: true,
+    },
   },
   // Adds custom robots.txt to production site
   {
     resolve: "gatsby-plugin-robots-txt",
-    options: { policy: [{ userAgent: "*", allow: "/" }] }
+    options: { policy: [{ userAgent: "*", allow: "/" }] },
   },
   // Adds a web app manifest
   {
@@ -88,10 +88,10 @@ const gatsbyPlugins = [
       background_color: `#ffffff`,
       theme_color: color.primary.pure,
       display: `minimal-ui`,
-      icon: `src/images/logo.svg`
-    }
+      icon: `src/images/logo.svg`,
+    },
   },
-  "gatsby-plugin-offline"
+  "gatsby-plugin-offline",
 ];
 
 /**
@@ -103,16 +103,16 @@ const gatsbyRemarkCodeBlocks = [
   // Generates titles for code blocks
   {
     resolve: "gatsby-remark-code-titles",
-    options: { className: "your-custom-class-name" }
+    options: { className: "your-custom-class-name" },
   },
   // Syntax highlighting. Defaults are ok
   "gatsby-remark-prismjs",
   {
     resolve: "gatsby-remark-embed-snippet",
     options: {
-      directory: `${__dirname}/data/code/`
-    }
-  }
+      directory: `${__dirname}/data/code/`,
+    },
+  },
 ];
 
 /**
@@ -126,8 +126,8 @@ const gatsbyRemarkLinks = [
   // Add rel=stuff to external links (SEO?)
   {
     resolve: "gatsby-remark-external-links",
-    options: { target: null, rel: "nofollow noopener" }
-  }
+    options: { target: null, rel: "nofollow noopener" },
+  },
 ];
 
 /**
@@ -139,10 +139,10 @@ const gatsbyRemarkImages = [
   // Responsive by: Elastic, Multiple versions, Blurs
   {
     resolve: "gatsby-remark-images",
-    options: { maxWidth: 900 }
+    options: { maxWidth: 900 },
   },
   // Copies images (svg and gif) without processing
-  "gatsby-remark-static-images"
+  "gatsby-remark-static-images",
 ];
 
 /**
@@ -162,10 +162,10 @@ const gatsbyRemarkSyntax = [
       blocks: {
         danger: "custom-block-danger",
         warning: "custom-block-warning",
-        info: "custom-block-info"
-      }
-    }
-  }
+        info: "custom-block-info",
+      },
+    },
+  },
 ];
 
 /**
@@ -183,7 +183,7 @@ const gatsbyRemarkPlugins = [
   ...gatsbyRemarkImages,
   ...gatsbyRemarkLinks,
   // Adds aria attributes for accessibility. Needs to be at the end
-  "gatsby-remark-a11y-emoji"
+  "gatsby-remark-a11y-emoji",
 ];
 
 /**
@@ -195,10 +195,10 @@ const gatsbyTransforms = [
   {
     resolve: `gatsby-transformer-remark`,
     options: {
-      plugins: gatsbyRemarkPlugins
-    }
+      plugins: gatsbyRemarkPlugins,
+    },
   },
-  "git"
+  "git",
 ];
 
 /**
@@ -209,23 +209,24 @@ const gatsbySources = [
     resolve: "gatsby-source-filesystem",
     options: {
       name: "blog",
-      path: `${__dirname}/data/blog/`
-    }
+      path: `${__dirname}/data/blog/`,
+      ignore: [`**/.git/*`],
+    },
   },
   {
     resolve: "gatsby-source-filesystem",
     options: {
       name: "pages",
-      path: `${__dirname}/data/pages/`
-    }
+      path: `${__dirname}/data/pages/`,
+    },
   },
   {
     resolve: "gatsby-source-filesystem",
     options: {
       name: "config",
-      path: `${__dirname}/data/config/`
-    }
-  }
+      path: `${__dirname}/data/config/`,
+    },
+  },
 ];
 
 /**
@@ -234,5 +235,5 @@ const gatsbySources = [
 module.exports = {
   siteMetadata,
   plugins: [...gatsbyPlugins, ...gatsbyTransforms, ...gatsbySources],
-  mapping
+  mapping,
 };

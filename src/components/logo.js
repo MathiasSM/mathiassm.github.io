@@ -10,9 +10,9 @@ import withColors from "components/withcolors";
 import { rhythm } from "utils/typography";
 
 const Wrapper = withColors(
-  c => c.primary.pure,
+  (c) => c.primary.pure,
   styled.div`
-    background: ${props => props.color};
+    background: ${(props) => props.color};
     &,
     a {
       color: white;
@@ -87,7 +87,7 @@ const query = graphql`
 const GoHome = ({ title }) => (
   <StaticQuery
     query={query}
-    render={data => (
+    render={(data) => (
       <>
         <LogoLink to={data.site.siteMetadata.entryPoint} title="Go home">
           <LogoImg src={logo} alt="" />
@@ -98,7 +98,7 @@ const GoHome = ({ title }) => (
   />
 );
 GoHome.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 const Logo = ({ title, subtitle, className }) => (
@@ -110,7 +110,7 @@ const Logo = ({ title, subtitle, className }) => (
 Logo.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default Logo;

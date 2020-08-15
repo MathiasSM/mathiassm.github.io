@@ -1,10 +1,10 @@
 extends:
-- "eslint:recommended"
-- "plugin:react/recommended"
-- prettier
-- prettier/react
+  - "eslint:recommended"
+  - "plugin:react/recommended"
+  - prettier
+  - prettier/react
 plugins:
-- react
+  - react
 parser: "babel-eslint"
 parserOptions:
   sourceType: "module"

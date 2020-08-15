@@ -20,7 +20,7 @@ const SEO = ({
     const meta = <meta key={tag} property={`og:${tag}`} content={cont} />;
     ogs.push(meta);
   };
-  Object.keys(og).forEach(tag => {
+  Object.keys(og).forEach((tag) => {
     const content = og[tag];
     if (Array.isArray(content)) {
       for (let i = 0; i < content.length; i += 1) addOg(tag, content[i]);
@@ -45,21 +45,21 @@ SEO.propTypes = {
   location: PropTypes.shape({
     href: PropTypes.string,
     pathname: PropTypes.string,
-    origin: PropTypes.string
+    origin: PropTypes.string,
   }),
   og: PropTypes.shape({
     title: PropTypes.string,
     type: PropTypes.string,
     url: PropTypes.string,
     image: PropTypes.string,
-    description: PropTypes.string
-  }).isRequired
+    description: PropTypes.string,
+  }).isRequired,
 };
 SEO.defaultProps = {
-  og: {}
+  og: {},
 };
 
-const LocatedSEO = props => (
+const LocatedSEO = (props) => (
   <Location>{({ location }) => <SEO {...{ location }} {...props} />}</Location>
 );
 
