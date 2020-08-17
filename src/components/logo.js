@@ -10,9 +10,9 @@ import withColors from "components/withcolors";
 import { rhythm } from "utils/typography";
 
 const Wrapper = withColors(
-  (c) => c.primary.pure,
+  (c) => ({ bg: c.primary.pure }),
   styled.div`
-    background: ${(props) => props.color};
+    background: ${(props) => props.colors.bg};
     &,
     a {
       color: white;

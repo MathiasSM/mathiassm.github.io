@@ -5,7 +5,7 @@ const query = graphql`
   query {
     site {
       siteMetadata {
-        color {
+        colors {
           primary {
             black
             dark
@@ -40,8 +40,8 @@ const withColors = (getColors = id, Comp) => {
     <StaticQuery
       query={query}
       render={(data) => {
-        const color = getColors(data.site.siteMetadata.color);
-        return <Comp {...{ color }} {...props} />;
+        const colors = getColors(data.site.siteMetadata.colors);
+        return <Comp {...{ colors }} {...props} />;
       }}
     />
   );

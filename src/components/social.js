@@ -21,7 +21,7 @@ const socialIcons = {
 };
 
 const SocialList = withColors(
-  (c) => c.primary.pure,
+  (c) => ({ bg: c.primary.pure }),
   styled.ul`
     margin: 0;
     padding: 1rem;
@@ -32,7 +32,7 @@ const SocialList = withColors(
     list-style: none;
     ${media.tablet`
       a {color: white}
-      background: ${(props) => props.color};
+      background: ${(props) => props.colors.bg};
     `}
     ${media.desktop``}
     ${media.bigdesktop``}

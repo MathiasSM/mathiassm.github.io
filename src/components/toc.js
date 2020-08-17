@@ -9,14 +9,14 @@ import withColor from "components/withcolors";
 import { rhythm } from "utils/typography";
 
 const ShowToC = withColor(
-  (c) => c.primary.black,
+  (c) => ({ black: c.primary.black }),
   styled.button`
     background: none;
     border: none;
     outline: none;
     width: 100%;
     text-align: center;
-    color: ${(props) => props.color};
+    color: ${(props) => props.colors.black};
   `
 );
 
@@ -36,9 +36,9 @@ const ToCHTML = styled.div`
 `;
 
 const ToCContainer = withColor(
-  (c) => c.secondary.white,
+  (c) => ({ white: c.secondary.white }),
   styled.div`
-    background: ${(props) => props.color};
+    background: ${(props) => props.colors.white};
     margin: ${rhythm(1)} 0;
     padding: ${rhythm(1)};
   `

@@ -7,6 +7,17 @@ import media from "utils/media";
 import withColors from "components/withcolors";
 import { rhythm } from "utils/typography";
 
+const localizedStrings = {
+  es: {
+    from: "Escrito",
+    last_updated_on: "Última actualización en",
+  },
+  en: {
+    from: "Written",
+    last_updated_on: "Last updated on",
+  },
+};
+
 const ListItem = styled.li`
   margin: ${rhythm(1)} 0;
   h2 {
@@ -15,12 +26,12 @@ const ListItem = styled.li`
 `;
 
 const ArtLink = withColors(
-  (c) => c.accent.pure,
+  (c) => ({ focus: c.accent.pure }),
   styled(Link)`
     color: inherit;
     &:hover,
     &:focus {
-      color: ${(props) => props.color};
+      color: ${(props) => props.colors.focus};
     }
   `
 );
@@ -39,6 +50,20 @@ const WhiteBreak = styled.span`
   `};
 `;
 
+const LastModifiedAt = ({ lastModifiedAt, language }) => (
+  <>
+    <WhiteBreak />
+    <span>{localizedStrings[language].last_updated_on}</span>
+    <span> </span>
+    <time dateTime={lastModifiedAt}>{lastModifiedAt}</time>
+    <span>.</span>
+  </>
+);
+LastModifiedAt.propTypes = {
+  lastModifiedAt: PropTypes.string.isRequired,
+  language: PropTypes.string.isRequired,
+};
+
 const BlogItem = ({
   lastModifiedAt,
   createdAt,
@@ -46,6 +71,9 @@ const BlogItem = ({
   path,
   title,
   description,
+  language,
+  showLastMod = true,
+  showDescription = true,
 }) => (
   <ListItem>
     <article>
@@ -53,16 +81,16 @@ const BlogItem = ({
         <header>
           <h2>{title}</h2>
           <Meta>
-            <span>From </span>
+            <span>{localizedStrings[language].from}</span>
+            <span> </span>
             <time dateTime={createdAt}>{createdAtString}</time>
             <span>.</span>
-            <WhiteBreak />
-            <span>Last updated on </span>
-            <time dateTime={lastModifiedAt}>{lastModifiedAt}</time>
-            <span>.</span>
+            {showLastMod && (
+              <LastModifiedAt {...{ lastModifiedAt, language }} />
+            )}
           </Meta>
         </header>
-        <div>{description}</div>
+        {showDescription && <div>{description}</div>}
       </ArtLink>
     </article>
   </ListItem>
@@ -74,6 +102,9 @@ BlogItem.propTypes = {
   path: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
+  language: PropTypes.string.isRequired,
+  showLastMod: PropTypes.bool,
+  showDescription: PropTypes.bool,
 };
 
 export default BlogItem;

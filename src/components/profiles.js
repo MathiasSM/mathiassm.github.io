@@ -25,7 +25,7 @@ const socialIcons = {
 };
 
 const Profile = withColors(
-  (c) => c.accent.pure,
+  (c) => ({ focus: c.accent.pure }),
   styled.article`
     display: flex;
     a {
@@ -35,7 +35,7 @@ const Profile = withColors(
       color: inherit;
       &:hover,
       &:focus {
-        color: ${(props) => props.color};
+        color: ${(props) => props.colors.focus};
       }
     }
     flex: 0 1 100%;

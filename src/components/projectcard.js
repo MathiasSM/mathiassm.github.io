@@ -13,12 +13,12 @@ const ListItem = styled.li`
 `;
 
 const ExtLink = withColors(
-  (c) => c.accent.pure,
+  (c) => ({ focus: c.accent.pure }),
   styled.a`
     color: inherit;
     &:hover,
     &:focus {
-      color: ${(props) => props.color};
+      color: ${(props) => props.colors.focus};
     }
   `
 );

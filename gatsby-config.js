@@ -2,7 +2,7 @@ require("dotenv").config();
 const colorJson = require("./data/config/colors.json");
 const getColors = require("./utils/colors.js");
 
-const color = getColors(colorJson);
+const colors = getColors(colorJson);
 
 /*
  * Globally accesible metadata
@@ -19,10 +19,11 @@ const siteMetadata = {
     { title: "Blog", path: "/blog" },
     { title: "Showcase", path: "/showcase" },
     { title: "Contact", path: "/contact" },
+    { title: "(Es)critos", path: "/escritos", language: "es" },
   ],
   siteUrl: process.env.SITE_URL,
   defaultLanguage: "en",
-  color,
+  colors,
 };
 
 /**
@@ -53,6 +54,11 @@ const gatsbyPlugins = [
               name: "language",
               getter: (node) => node.frontmatter.language,
               defaultValue: siteMetadata.defaultLanguage,
+            },
+            {
+              name: "type",
+              getter: (node) => node.frontmatter.type,
+              defaultValue: "blogPost",
             },
           ],
         },
@@ -92,7 +98,7 @@ const gatsbyPlugins = [
       short_name: siteMetadata.title,
       start_url: `/`,
       background_color: `#ffffff`,
-      theme_color: color.primary.pure,
+      theme_color: colors.primary.pure,
       display: `minimal-ui`,
       icon: `src/images/logo.svg`,
     },

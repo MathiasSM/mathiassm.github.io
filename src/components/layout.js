@@ -92,6 +92,7 @@ const query = graphql`
         sections {
           title
           path
+          language
         }
       }
     }
