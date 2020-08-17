@@ -18,8 +18,8 @@ const siteMetadata = {
   sections: [
     { title: "Blog", path: "/blog" },
     { title: "Showcase", path: "/showcase" },
-    { title: "Contact", path: "/contact" },
-    { title: "(Es)critos", path: "/escritos", language: "es" },
+    { title: "Contact", path: "/contact", language: "en" },
+    //{ title: "(Es)critos", path: "/escritos", language: "es" },
   ],
   siteUrl: process.env.SITE_URL,
   defaultLanguage: "en",
