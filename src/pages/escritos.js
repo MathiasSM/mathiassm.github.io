@@ -125,7 +125,6 @@ export const query = graphql`
             title
             path
             description
-            hideDescription
           }
         }
       }
