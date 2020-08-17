@@ -22,12 +22,12 @@ script:
 
 deploy:
   # Deploy updated docs to github pages
-  strategy: git
   provider: pages:git
   edge: true
-  local_dir: public
   token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
   target-branch: master
+  local_dir: public
   deployment_file: false
+  cleanup: false
   on:
     branch: production
