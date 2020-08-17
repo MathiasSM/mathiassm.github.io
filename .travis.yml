@@ -1,8 +1,8 @@
 # Must set
 # + $GITHUB_TOKEN
 
-# Use new container infrastructure to enable caching
-sudo: false
+os: linux
+dist: xenial
 
 # Do not choose a language; we provide our own build tools.
 language: node_js
@@ -22,10 +22,10 @@ script:
 
 deploy:
   # Deploy updated docs to github pages
-  local-dir: public
+  strategy: git
+  local_dir: public
   provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
+  token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
   target-branch: master
   on:
     branch: production
