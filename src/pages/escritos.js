@@ -43,7 +43,7 @@ const EscritosPage = ({
           {posts.map(
             ({
               post: {
-                frontmatter: { path, ...frontmatter },
+                frontmatter: { hideDescription, path, ...frontmatter },
                 fields,
               },
             }) => (
@@ -51,7 +51,8 @@ const EscritosPage = ({
                 key={path}
                 path={path}
                 showLastMod={false}
-                showDescription={false}
+                showDescription={!hideDescription}
+                pageLanguage={"es"}
                 {...frontmatter}
                 {...fields}
               />
@@ -65,6 +66,11 @@ const EscritosPage = ({
 
 EscritosPage.propTypes = {
   data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        defaultLanguage: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
     postList: PropTypes.shape({
       posts: PropTypes.array,
     }),
@@ -119,6 +125,7 @@ export const query = graphql`
             title
             path
             description
+            hideDescription
           }
         }
       }

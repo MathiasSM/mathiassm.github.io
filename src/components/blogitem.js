@@ -72,6 +72,7 @@ const BlogItem = ({
   title,
   description,
   language,
+  pageLanguage,
   showLastMod = true,
   showDescription = true,
 }) => (
@@ -79,14 +80,14 @@ const BlogItem = ({
     <article>
       <ArtLink to={path}>
         <header>
-          <h2>{title}</h2>
+          <h2 lang={language}>{title}</h2>
           <Meta>
-            <span>{localizedStrings[language].from}</span>
+            <span>{localizedStrings[pageLanguage].from}</span>
             <span> </span>
             <time dateTime={createdAt}>{createdAtString}</time>
             <span>.</span>
             {showLastMod && (
-              <LastModifiedAt {...{ lastModifiedAt, language }} />
+              <LastModifiedAt {...{ lastModifiedAt, language: pageLanguage }} />
             )}
           </Meta>
         </header>
@@ -103,6 +104,7 @@ BlogItem.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   language: PropTypes.string.isRequired,
+  pageLanguage: PropTypes.string.isRequired,
   showLastMod: PropTypes.bool,
   showDescription: PropTypes.bool,
 };

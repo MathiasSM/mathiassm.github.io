@@ -10,6 +10,9 @@ import TextBody from "components/textbody";
 
 const BlogPage = ({
   data: {
+    site: {
+      siteMetadata: { defaultLanguage },
+    },
     postList: { posts },
     blogPage: {
       frontmatter: {
@@ -46,7 +49,13 @@ const BlogPage = ({
                 fields,
               },
             }) => (
-              <BlogItem key={path} path={path} {...frontmatter} {...fields} />
+              <BlogItem
+                key={path}
+                path={path}
+                pageLanguage={defaultLanguage}
+                {...frontmatter}
+                {...fields}
+              />
             )
           )}
         </BlogList>
@@ -56,6 +65,11 @@ const BlogPage = ({
 );
 BlogPage.propTypes = {
   data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        defaultLanguage: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
     postList: PropTypes.shape({
       posts: PropTypes.array,
     }),
@@ -78,6 +92,12 @@ export default BlogPage;
 
 export const query = graphql`
   {
+    site {
+      siteMetadata {
+        defaultLanguage
+      }
+    }
+
     blogPage: markdownRemark(frontmatter: { path: { eq: "/blog" } }) {
       frontmatter {
         title

@@ -222,7 +222,7 @@ const gatsbySources = [
     options: {
       name: "blog",
       path: `${__dirname}/data/blog/`,
-      ignore: [`**/.git/*`],
+      ignore: [`**/.git/*`, "**/.*"],
     },
   },
   {
@@ -230,6 +230,7 @@ const gatsbySources = [
     options: {
       name: "pages",
       path: `${__dirname}/data/pages/`,
+      ignore: [`**/.git/*`, "**/.*"],
     },
   },
   {
@@ -237,6 +238,7 @@ const gatsbySources = [
     options: {
       name: "config",
       path: `${__dirname}/data/config/`,
+      ignore: [`**/.git/*`, "**/.*"],
     },
   },
 ];
