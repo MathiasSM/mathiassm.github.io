@@ -27,9 +27,9 @@ const ContactPage = ({
     />
 
     <main>
-      <h1>{title}</h1>
-      <TextBody dangerouslySetInnerHTML={{ __html }} />
       <TextBody>
+        <h1>{title}</h1>
+        <div dangerouslySetInnerHTML={{ __html }} />
         <Profiles {...{ profiles }} />
       </TextBody>
     </main>

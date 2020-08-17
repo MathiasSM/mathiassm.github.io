@@ -40,7 +40,7 @@ const SocialList = withColors(
 );
 
 const Social = ({ profiles, className }) => (
-  <SocialList className={className}>
+  <SocialList className={className} lang="en">
     {profiles.map(
       ({
         node: {

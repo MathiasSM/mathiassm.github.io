@@ -43,7 +43,6 @@ const Grid = styled.div`
                          "social content";`}
   ${media.desktop` `}
   ${media.bigdesktop`
-    max-width: 1920px;
     justify-content: center;
     grid-template-columns: 1fr 3fr;`}
 `;
@@ -51,12 +50,15 @@ const Grid = styled.div`
 const LayoutComp = ({
   children,
   data: {
-    site: { siteMetadata },
+    site: {
+      siteMetadata: { defaultLanguage, ...siteMetadata },
+    },
     social,
   },
 }) => (
   <Grid>
     <SEO
+      language={defaultLanguage}
       defaultTitle={`${siteMetadata.title} - ${siteMetadata.description}`}
       titleTemplate={`%s - ${siteMetadata.title}`}
       og={{ type: "website", site_name: siteMetadata.title }}
@@ -86,6 +88,7 @@ const query = graphql`
         owner
         since
         now
+        defaultLanguage
         sections {
           title
           path

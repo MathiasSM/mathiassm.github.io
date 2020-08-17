@@ -102,7 +102,7 @@ GoHome.propTypes = {
 };
 
 const Logo = ({ title, subtitle, className }) => (
-  <Wrapper className={className}>
+  <Wrapper className={className} lang="en">
     <GoHome title={title} />
     <Subtitle>{subtitle}</Subtitle>
   </Wrapper>

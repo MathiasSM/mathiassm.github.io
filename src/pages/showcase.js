@@ -6,6 +6,7 @@ import Layout from "components/layout";
 import ProjectCard from "components/projectcard";
 import List from "components/bloglist";
 import SEO from "components/seo";
+import TextBody from "components/textbody";
 
 const ShowcasePage = ({
   data: {
@@ -32,21 +33,23 @@ const ShowcasePage = ({
       }}
     />
     <main>
-      <header>
-        <h1>{title}</h1>
-        <div dangerouslySetInnerHTML={{ __html }} />
-      </header>
-      <List>
-        {[...activeProjectsList.projects, ...onholdProjectsList.projects].map(
-          ({
-            node: {
-              project: { title, ...project },
-            },
-          }) => (
-            <ProjectCard key={title} title={title} {...project} />
-          )
-        )}
-      </List>
+      <TextBody>
+        <header>
+          <h1>{title}</h1>
+          <div dangerouslySetInnerHTML={{ __html }} />
+        </header>
+        <List>
+          {[...activeProjectsList.projects, ...onholdProjectsList.projects].map(
+            ({
+              node: {
+                project: { title, ...project },
+              },
+            }) => (
+              <ProjectCard key={title} title={title} {...project} />
+            )
+          )}
+        </List>
+      </TextBody>
     </main>
   </Layout>
 );

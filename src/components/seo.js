@@ -4,7 +4,7 @@ import { Location } from "@reach/router";
 import Helmet from "react-helmet";
 
 const SEO = ({
-  lang = "en",
+  language,
   title,
   description,
   og: ogRaw,
@@ -31,15 +31,16 @@ const SEO = ({
 
   return (
     <Helmet {...props}>
-      {lang && <html lang={lang} />}
+      {language && <html lang={language} />}
       {title && <title>{title}</title>}
       {ogs}
       <meta property="og:url" content={`${origin}${pathname}`} />
+      <meta name="description" content={description} />
     </Helmet>
   );
 };
 SEO.propTypes = {
-  lang: PropTypes.string,
+  language: PropTypes.string,
   description: PropTypes.string,
   title: PropTypes.string,
   location: PropTypes.shape({

@@ -6,22 +6,40 @@ import styled from "styled-components";
 import Layout from "components/layout";
 import TableOfContents from "components/toc";
 import SEO from "components/seo";
+import TextBody from "components/textbody";
+
+const localizedStrings = {
+  en: {
+    originally_written: "Originally written",
+    last_updated_on: "Last updated on",
+  },
+
+  es: {
+    originally_written: "Escrito originalmente",
+    last_updated_on: "Ultima modificación en",
+  },
+};
 
 const Header = styled.header``;
 
 const Meta = styled.footer`
   margin: 1em 0;
+  font-style: italic;
 `;
 
-const PostMeta = ({ createdAt, createdAtString, lastModifiedAt }) => (
+const PostMeta = ({ language, createdAt, createdAtString, lastModifiedAt }) => (
   <Meta>
-    {"Originally written "}
+    <span>{localizedStrings[language]["originally_written"]}</span>
+    <span> </span>
     <time dateTime={createdAt}>{createdAtString}</time>
-    {". Last updated on "}
+    <span>{". "}</span>
+    <span>{localizedStrings[language]["last_updated_on"]}</span>
+    <span> </span>
     <time dateTime={lastModifiedAt}>{lastModifiedAt}</time>
   </Meta>
 );
 PostMeta.propTypes = {
+  language: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
   createdAtString: PropTypes.string.isRequired,
   lastModifiedAt: PropTypes.string.isRequired,
@@ -39,7 +57,7 @@ PostHeader.propTypes = {
 const PostTemplate = ({
   data: {
     post: {
-      fields: { author, lastModifiedAt, ...fields },
+      fields: { author, lastModifiedAt, language, ...fields },
       frontmatter: {
         TOC,
         title,
@@ -47,48 +65,60 @@ const PostTemplate = ({
         shareTitle,
         shareDescription,
         createdAt,
-        createdAtString,
+        createdAtString_es,
+        createdAtString_en,
       },
       tableOfContents,
       html: __html,
     },
   },
-}) => (
-  <Layout>
-    <SEO
-      title={title}
-      description={description}
-      og={{
-        title: shareTitle,
-        description: shareDescription,
-        author,
-        type: "article",
-        published_time: createdAt,
-        modified_time: lastModifiedAt,
-      }}
-    />
-    <main>
-      <article>
-        <PostHeader title={title} />
-        <PostMeta
-          {...{
-            createdAt,
-            createdAtString,
-            lastModifiedAt,
-          }}
-          {...fields}
-        />
-        {TOC && <TableOfContents {...{ tableOfContents }} />}
-        <div dangerouslySetInnerHTML={{ __html }} />
-      </article>
-    </main>
-  </Layout>
-);
+}) => {
+  const createdAtString = { en: createdAtString_en, es: createdAtString_es };
+  return (
+    <Layout>
+      <SEO
+        language={language}
+        title={title}
+        description={description}
+        og={{
+          title: shareTitle,
+          description: shareDescription,
+          author,
+          type: "article",
+          published_time: createdAt,
+          modified_time: lastModifiedAt,
+        }}
+      />
+      <main>
+        <article>
+          <TextBody>
+            <PostHeader title={title} />
+            <PostMeta
+              {...{
+                language,
+                createdAt,
+                createdAtString: createdAtString[language],
+                lastModifiedAt,
+              }}
+              {...fields}
+            />
+            {TOC && <TableOfContents {...{ tableOfContents }} />}
+            <div dangerouslySetInnerHTML={{ __html }} />
+          </TextBody>
+        </article>
+      </main>
+    </Layout>
+  );
+};
 PostTemplate.propTypes = {
   data: PropTypes.shape({
     post: PropTypes.shape({
-      html: PropTypes.string,
-      fields: PropTypes.object,
+      html: PropTypes.string.isRequired,
+      fields: PropTypes.shape({
+        language: PropTypes.string.isRequired,
+        author: PropTypes.string,
+        lastModifiedAt: PropTypes.string,
+      }),
       frontmatter: PropTypes.shape({
         TOC: PropTypes.bool,
         title: PropTypes.string,
@@ -96,7 +126,8 @@ PostTemplate.propTypes = {
         shareTitle: PropTypes.string,
         shareDescription: PropTypes.string,
         createdAt: PropTypes.string,
-        createdAtString: PropTypes.string,
+        createdAtString_en: PropTypes.string,
+        createdAtString_es: PropTypes.string,
       }),
       tableOfContents: PropTypes.string,
     }),
@@ -105,7 +136,7 @@ PostTemplate.propTypes = {
 
 export default PostTemplate;
 
-export const quary = graphql`
+export const query = graphql`
   query PostTemplateQuery($path: String!) {
     post: markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
@@ -113,9 +144,11 @@ export const quary = graphql`
       fields {
         lastModifiedAt(formatString: "YYYY-MM-DD")
         author
+        language
       }
       frontmatter {
-        createdAtString: date(fromNow: true)
+        createdAtString_en: date(fromNow: true, locale: "en")
+        createdAtString_es: date(fromNow: true, locale: "es")
         createdAt: date(formatString: "YYYY-MM-DD")
         path
         title

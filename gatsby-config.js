@@ -9,7 +9,7 @@ const color = getColors(colorJson);
  */
 const siteMetadata = {
   title: "MathiasSM",
-  subtitle: "Computer Science Student",
+  subtitle: "Software Development Engineer",
   description: "Personal site, portfolio and blog",
   owner: "Mathias San Miguel",
   since: 2013,
@@ -21,6 +21,7 @@ const siteMetadata = {
     { title: "Contact", path: "/contact" },
   ],
   siteUrl: process.env.SITE_URL,
+  defaultLanguage: "en",
   color,
 };
 
@@ -47,6 +48,11 @@ const gatsbyPlugins = [
               name: "author",
               getter: (node) => node.frontmatter.author,
               defaultValue: siteMetadata.owner,
+            },
+            {
+              name: "language",
+              getter: (node) => node.frontmatter.language,
+              defaultValue: siteMetadata.defaultLanguage,
             },
           ],
         },

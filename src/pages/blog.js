@@ -6,6 +6,7 @@ import Layout from "components/layout";
 import BlogItem from "components/blogitem";
 import BlogList from "components/bloglist";
 import SEO from "components/seo";
+import TextBody from "components/textbody";
 
 const BlogPage = ({
   data: {
@@ -32,22 +33,24 @@ const BlogPage = ({
       }}
     />
     <main>
-      <header>
-        <h1>{title}</h1>
-        <div dangerouslySetInnerHTML={{ __html }} />
-      </header>
-      <BlogList>
-        {posts.map(
-          ({
-            post: {
-              frontmatter: { path, ...frontmatter },
-              fields,
-            },
-          }) => (
-            <BlogItem key={path} path={path} {...frontmatter} {...fields} />
-          )
-        )}
-      </BlogList>
+      <TextBody>
+        <header>
+          <h1>{title}</h1>
+          <div dangerouslySetInnerHTML={{ __html }} />
+        </header>
+        <BlogList>
+          {posts.map(
+            ({
+              post: {
+                frontmatter: { path, ...frontmatter },
+                fields,
+              },
+            }) => (
+              <BlogItem key={path} path={path} {...frontmatter} {...fields} />
+            )
+          )}
+        </BlogList>
+      </TextBody>
     </main>
   </Layout>
 );

@@ -57,7 +57,7 @@ const MenuLink = withColors(
 );
 
 const Menu = ({ sections, className }) => (
-  <MenuNav className={className}>
+  <MenuNav className={className} lang="en">
     {sections.map(({ path, title }) => (
       <MenuLink key={title} to={path} partiallyActive>
         {title}

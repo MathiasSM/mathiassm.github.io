@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import Layout from "components/layout";
 import SEO from "components/seo";
+import TextBody from "components/textbody";
 
 const AboutPage = ({
   data: {
@@ -24,8 +25,10 @@ const AboutPage = ({
       }}
     />
     <main>
-      <h1>{title}</h1>
-      <div dangerouslySetInnerHTML={{ __html }} />
+      <TextBody>
+        <h1>{title}</h1>
+        <div dangerouslySetInnerHTML={{ __html }} />
+      </TextBody>
     </main>
   </Layout>
 );
