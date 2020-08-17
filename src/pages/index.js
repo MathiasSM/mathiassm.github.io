@@ -15,7 +15,7 @@ const query = graphql`
 const IndexPage = () => (
   <StaticQuery
     query={query}
-    render={data => (
+    render={(data) => (
       <Redirect from="/" to={data.site.siteMetadata.entryPoint} noThrow />
     )}
   />

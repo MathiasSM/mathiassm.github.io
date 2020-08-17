@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 // FA Icons
-import { Twitter } from "styled-icons/fa-brands/Twitter";
-import { Github } from "styled-icons/fa-brands/Github";
-import { MediumM as Medium } from "styled-icons/fa-brands/MediumM";
-import { Linkedin as LinkedIn } from "styled-icons/fa-brands/Linkedin";
-import { Imdb as IMDb } from "styled-icons/fa-brands/Imdb";
+import { Twitter } from "@styled-icons/fa-brands/Twitter";
+import { Github } from "@styled-icons/fa-brands/Github";
+import { MediumM as Medium } from "@styled-icons/fa-brands/MediumM";
+import { Linkedin as LinkedIn } from "@styled-icons/fa-brands/Linkedin";
+import { Imdb as IMDb } from "@styled-icons/fa-brands/Imdb";
 
 import MAL from "images/extra/MAL";
 
@@ -21,11 +21,11 @@ const socialIcons = {
   Medium,
   LinkedIn,
   IMDb,
-  MAL
+  MAL,
 };
 
 const Profile = withColors(
-  c => c.accent.pure,
+  (c) => ({ focus: c.accent.pure }),
   styled.article`
     display: flex;
     a {
@@ -35,7 +35,7 @@ const Profile = withColors(
       color: inherit;
       &:hover,
       &:focus {
-        color: ${props => props.color};
+        color: ${(props) => props.colors.focus};
       }
     }
     flex: 0 1 100%;
@@ -98,7 +98,7 @@ SocialItem.propTypes = {
   title: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
 };
 
 const ProfilesWrap = styled.div`
@@ -118,11 +118,11 @@ Profiles.propTypes = {
     PropTypes.shape({
       node: PropTypes.shape({
         profile: PropTypes.shape({
-          title: PropTypes.string.isRequired
-        }).isRequired
-      }).isRequired
+          title: PropTypes.string.isRequired,
+        }).isRequired,
+      }).isRequired,
     })
-  ).isRequired
+  ).isRequired,
 };
 
 export default Profiles;

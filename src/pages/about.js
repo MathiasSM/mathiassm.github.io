@@ -4,14 +4,15 @@ import PropTypes from "prop-types";
 
 import Layout from "components/layout";
 import SEO from "components/seo";
+import TextBody from "components/textbody";
 
 const AboutPage = ({
   data: {
     indexContent: {
       frontmatter: { title, shareTitle, description, shareDescription },
-      html: __html
-    }
-  }
+      html: __html,
+    },
+  },
 }) => (
   <Layout>
     <SEO
@@ -20,12 +21,14 @@ const AboutPage = ({
       og={{
         title: shareTitle || title,
         type: "blog",
-        description: shareDescription || description
+        description: shareDescription || description,
       }}
     />
     <main>
-      <h1>{title}</h1>
-      <div dangerouslySetInnerHTML={{ __html }} />
+      <TextBody>
+        <h1>{title}</h1>
+        <div dangerouslySetInnerHTML={{ __html }} />
+      </TextBody>
     </main>
   </Layout>
 );
@@ -38,12 +41,12 @@ AboutPage.propTypes = {
         description: PropTypes.string,
         shareDescription: PropTypes.oneOfType([
           PropTypes.string,
-          PropTypes.bool
-        ])
+          PropTypes.bool,
+        ]),
       }).isRequired,
-      html: PropTypes.string
-    }).isRequired
-  })
+      html: PropTypes.string,
+    }).isRequired,
+  }),
 };
 
 export default AboutPage;

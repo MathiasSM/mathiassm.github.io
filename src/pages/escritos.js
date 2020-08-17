@@ -8,15 +8,12 @@ import BlogList from "components/bloglist";
 import SEO from "components/seo";
 import TextBody from "components/textbody";
 
-const BlogPage = ({
+const EscritosPage = ({
   data: {
-    site: {
-      siteMetadata: { defaultLanguage },
-    },
     postList: { posts },
-    blogPage: {
+    escritosPage: {
       frontmatter: {
-        title = "Blog",
+        title = "Escritos",
         shareTitle,
         description,
         shareDescription,
@@ -29,6 +26,7 @@ const BlogPage = ({
     <SEO
       title={title}
       description={description}
+      language={"es"}
       og={{
         title: shareTitle || title,
         type: "blog",
@@ -45,14 +43,16 @@ const BlogPage = ({
           {posts.map(
             ({
               post: {
-                frontmatter: { path, ...frontmatter },
+                frontmatter: { hideDescription, path, ...frontmatter },
                 fields,
               },
             }) => (
               <BlogItem
                 key={path}
                 path={path}
-                pageLanguage={defaultLanguage}
+                showLastMod={false}
+                showDescription={!hideDescription}
+                pageLanguage={"es"}
                 {...frontmatter}
                 {...fields}
               />
@@ -63,7 +63,8 @@ const BlogPage = ({
     </main>
   </Layout>
 );
-BlogPage.propTypes = {
+
+EscritosPage.propTypes = {
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
@@ -73,7 +74,7 @@ BlogPage.propTypes = {
     postList: PropTypes.shape({
       posts: PropTypes.array,
     }),
-    blogPage: PropTypes.shape({
+    escritosPage: PropTypes.shape({
       html: PropTypes.string,
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
@@ -88,17 +89,11 @@ BlogPage.propTypes = {
   }),
 };
 
-export default BlogPage;
+export default EscritosPage;
 
 export const query = graphql`
   {
-    site {
-      siteMetadata {
-        defaultLanguage
-      }
-    }
-
-    blogPage: markdownRemark(frontmatter: { path: { eq: "/blog" } }) {
+    escritosPage: markdownRemark(frontmatter: { path: { eq: "/escritos" } }) {
       frontmatter {
         title
         shareTitle
@@ -111,8 +106,11 @@ export const query = graphql`
     postList: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: {
-        frontmatter: { path: { regex: "/.+/" }, date: { ne: null } }
-        fields: { type: { eq: "blogPost" } }
+        frontmatter: {
+          type: { eq: "escrito" }
+          path: { regex: "/.+/" }
+          date: { ne: null }
+        }
       }
     ) {
       posts: edges {
@@ -122,7 +120,7 @@ export const query = graphql`
             language
           }
           frontmatter {
-            createdAtString: date(fromNow: true)
+            createdAtString: date(fromNow: true, locale: "es")
             createdAt: date(formatString: "YYYY-MM-DD")
             title
             path

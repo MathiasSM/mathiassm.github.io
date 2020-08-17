@@ -43,7 +43,6 @@ const Grid = styled.div`
                          "social content";`}
   ${media.desktop` `}
   ${media.bigdesktop`
-    max-width: 1920px;
     justify-content: center;
     grid-template-columns: 1fr 3fr;`}
 `;
@@ -51,12 +50,15 @@ const Grid = styled.div`
 const LayoutComp = ({
   children,
   data: {
-    site: { siteMetadata },
-    social
-  }
+    site: {
+      siteMetadata: { defaultLanguage, ...siteMetadata },
+    },
+    social,
+  },
 }) => (
   <Grid>
     <SEO
+      language={defaultLanguage}
       defaultTitle={`${siteMetadata.title} - ${siteMetadata.description}`}
       titleTemplate={`%s - ${siteMetadata.title}`}
       og={{ type: "website", site_name: siteMetadata.title }}
@@ -72,8 +74,8 @@ LayoutComp.propTypes = {
   children: PropTypes.node,
   data: PropTypes.shape({
     site: PropTypes.shape({ siteMetadata: PropTypes.object }),
-    social: PropTypes.object
-  })
+    social: PropTypes.object,
+  }),
 };
 
 const query = graphql`
@@ -86,9 +88,11 @@ const query = graphql`
         owner
         since
         now
+        defaultLanguage
         sections {
           title
           path
+          language
         }
       }
     }
@@ -98,7 +102,7 @@ const query = graphql`
 const Layout = ({ children }) => (
   <StaticQuery
     query={query}
-    render={data => (
+    render={(data) => (
       <LayoutComp data={data}>
         <GlobalStyles />
         {children}
@@ -107,7 +111,7 @@ const Layout = ({ children }) => (
   />
 );
 Layout.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default Layout;

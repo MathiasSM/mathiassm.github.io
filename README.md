@@ -3,6 +3,7 @@
 ## Install
 
 Make sure you have stable versions of `node` and `npm` installed:
+
 ```sh
 # Download and install Node 10 on Debian
 # Mode info at: https://nodejs.org/en/download/package-manager/
@@ -11,6 +12,7 @@ sudo apt-get install -y nodejs
 ```
 
 Run from the repo root to install dependencies
+
 ```sh
 npm install
 ```
@@ -18,6 +20,7 @@ npm install
 ## Build
 
 You can build, run, test, etc by using the appropriated script
+
 ```sh
 npm run help
 

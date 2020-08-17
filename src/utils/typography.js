@@ -7,12 +7,12 @@ const typography = new Typography({
   googleFonts: [
     {
       name: "Roboto Slab",
-      styles: ["700"]
+      styles: ["700"],
     },
     {
       name: "Roboto",
-      styles: ["400", "400i", "700", "700i"]
-    }
+      styles: ["400", "400i", "700", "700i"],
+    },
   ],
   headerFontFamily: ["Roboto Slab", "Helvetica", "sans-serif"],
   bodyFontFamily: ["Roboto", "Helvetica", "sans-serif"],
@@ -22,7 +22,7 @@ const typography = new Typography({
   bodyGrayHue: "cool",
   headerWeight: 700,
   bodyWeight: 400,
-  boldWeight: 700
+  boldWeight: 700,
 });
 const { rhythm, scale } = typography;
 export { rhythm, scale, typography as default };

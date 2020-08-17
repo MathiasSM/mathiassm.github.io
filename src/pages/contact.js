@@ -11,10 +11,10 @@ const ContactPage = ({
   data: {
     page: {
       html: __html,
-      frontmatter: { title, description, shareTitle, shareDescription }
+      frontmatter: { title, description, shareTitle, shareDescription },
     },
-    social: { profiles }
-  }
+    social: { profiles },
+  },
 }) => (
   <Layout>
     <SEO
@@ -22,14 +22,14 @@ const ContactPage = ({
       description={description}
       og={{
         title: shareTitle || title,
-        description: shareDescription || description
+        description: shareDescription || description,
       }}
     />
 
     <main>
-      <h1>{title}</h1>
-      <TextBody dangerouslySetInnerHTML={{ __html }} />
       <TextBody>
+        <h1>{title}</h1>
+        <div dangerouslySetInnerHTML={{ __html }} />
         <Profiles {...{ profiles }} />
       </TextBody>
     </main>
@@ -43,13 +43,16 @@ ContactPage.propTypes = {
         title: PropTypes.string,
         shareTitle: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
         description: PropTypes.string,
-        shareDescription: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
-      })
+        shareDescription: PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.bool,
+        ]),
+      }),
     }),
     social: PropTypes.shape({
-      profiles: PropTypes.array.isRequired
-    })
-  })
+      profiles: PropTypes.array.isRequired,
+    }),
+  }),
 };
 
 export default ContactPage;

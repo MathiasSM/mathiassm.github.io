@@ -15,7 +15,7 @@ const MainFooter = ({ owner, since, now }) => (
 MainFooter.propTypes = {
   owner: PropTypes.string.isRequired,
   since: PropTypes.number.isRequired,
-  now: PropTypes.number.isRequired
+  now: PropTypes.number.isRequired,
 };
 
 export default MainFooter;

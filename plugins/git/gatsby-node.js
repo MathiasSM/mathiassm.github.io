@@ -3,8 +3,8 @@ const git = require("simple-git/promise");
 
 function getModificationDate(dir, file) {
   return git(dir)
-    .log({ file })
-    .then(log => (log.latest ? log.latest.date : new Date()))
+    .log({ file, strictDate: false })
+    .then((log) => (log.latest ? log.latest.date : new Date()))
     .catch(() => {
       Promise.reject(`Couldn't find git log for ${file}`);
     });
@@ -18,14 +18,14 @@ exports.onCreateNode = ({ node, actions }) => {
 
   const {
     fileAbsolutePath: filePath,
-    internal: { type }
+    internal: { type },
   } = node;
 
   if (type !== "MarkdownRemark") return;
 
   const dirPath = path.dirname(filePath);
 
-  return getModificationDate(dirPath, filePath).then(date => {
+  return getModificationDate(dirPath, filePath).then((date) => {
     createNodeField({ node, name: "lastModifiedAt", value: new Date(date) });
   });
 };

@@ -6,6 +6,7 @@ import Layout from "components/layout";
 import ProjectCard from "components/projectcard";
 import List from "components/bloglist";
 import SEO from "components/seo";
+import TextBody from "components/textbody";
 
 const ShowcasePage = ({
   data: {
@@ -16,11 +17,11 @@ const ShowcasePage = ({
         title = "Showcase",
         description,
         shareDescription,
-        shareTitle
+        shareTitle,
       },
-      html: __html
-    }
-  }
+      html: __html,
+    },
+  },
 }) => (
   <Layout>
     <SEO
@@ -28,25 +29,27 @@ const ShowcasePage = ({
       description={description}
       og={{
         title: shareTitle,
-        description: shareDescription || description
+        description: shareDescription || description,
       }}
     />
     <main>
-      <header>
-        <h1>{title}</h1>
-        <div dangerouslySetInnerHTML={{ __html }} />
-      </header>
-      <List>
-        {[...activeProjectsList.projects, ...onholdProjectsList.projects].map(
-          ({
-            node: {
-              project: { title, ...project }
-            }
-          }) => (
-            <ProjectCard key={title} title={title} {...project} />
-          )
-        )}
-      </List>
+      <TextBody>
+        <header>
+          <h1>{title}</h1>
+          <div dangerouslySetInnerHTML={{ __html }} />
+        </header>
+        <List>
+          {[...activeProjectsList.projects, ...onholdProjectsList.projects].map(
+            ({
+              node: {
+                project: { title, ...project },
+              },
+            }) => (
+              <ProjectCard key={title} title={title} {...project} />
+            )
+          )}
+        </List>
+      </TextBody>
     </main>
   </Layout>
 );
@@ -56,19 +59,19 @@ ShowcasePage.propTypes = {
       projects: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
-            project: PropTypes.shape({ title: PropTypes.string.isRequired })
-          })
+            project: PropTypes.shape({ title: PropTypes.string.isRequired }),
+          }),
         })
-      )
+      ),
     }),
     onholdProjectsList: PropTypes.shape({
       projects: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
-            project: PropTypes.shape({ title: PropTypes.string.isRequired })
-          })
+            project: PropTypes.shape({ title: PropTypes.string.isRequired }),
+          }),
         })
-      )
+      ),
     }),
     showcasePage: PropTypes.shape({
       html: PropTypes.string,
@@ -76,10 +79,13 @@ ShowcasePage.propTypes = {
         title: PropTypes.string,
         shareTitle: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
         description: PropTypes.string,
-        shareDescription: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
-      })
-    })
-  })
+        shareDescription: PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.bool,
+        ]),
+      }),
+    }),
+  }),
 };
 
 export default ShowcasePage;

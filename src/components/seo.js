@@ -4,7 +4,7 @@ import { Location } from "@reach/router";
 import Helmet from "react-helmet";
 
 const SEO = ({
-  lang = "en",
+  language,
   title,
   description,
   og: ogRaw,
@@ -20,7 +20,7 @@ const SEO = ({
     const meta = <meta key={tag} property={`og:${tag}`} content={cont} />;
     ogs.push(meta);
   };
-  Object.keys(og).forEach(tag => {
+  Object.keys(og).forEach((tag) => {
     const content = og[tag];
     if (Array.isArray(content)) {
       for (let i = 0; i < content.length; i += 1) addOg(tag, content[i]);
@@ -31,35 +31,36 @@ const SEO = ({
 
   return (
     <Helmet {...props}>
-      {lang && <html lang={lang} />}
+      {language && <html lang={language} />}
       {title && <title>{title}</title>}
       {ogs}
       <meta property="og:url" content={`${origin}${pathname}`} />
+      <meta name="description" content={description} />
     </Helmet>
   );
 };
 SEO.propTypes = {
-  lang: PropTypes.string,
+  language: PropTypes.string,
   description: PropTypes.string,
   title: PropTypes.string,
   location: PropTypes.shape({
     href: PropTypes.string,
     pathname: PropTypes.string,
-    origin: PropTypes.string
+    origin: PropTypes.string,
   }),
   og: PropTypes.shape({
     title: PropTypes.string,
     type: PropTypes.string,
     url: PropTypes.string,
     image: PropTypes.string,
-    description: PropTypes.string
-  }).isRequired
+    description: PropTypes.string,
+  }).isRequired,
 };
 SEO.defaultProps = {
-  og: {}
+  og: {},
 };
 
-const LocatedSEO = props => (
+const LocatedSEO = (props) => (
   <Location>{({ location }) => <SEO {...{ location }} {...props} />}</Location>
 );
 

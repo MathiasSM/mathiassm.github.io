@@ -7,11 +7,11 @@ import { rhythm } from "utils/typography";
 import withColors from "./withcolors";
 
 export const Global = withColors(
-  c => ({
+  (c) => ({
     normal: c.accent.pure,
     visited: c.accent.dark,
     oddRow: c.secondary.white,
-    evenRow: "white"
+    evenRow: "white",
   }),
   createGlobalStyle`
     // Body
@@ -31,10 +31,10 @@ export const Global = withColors(
     a {
       text-decoration: none;
 
-      color: ${props => props.color.normal};
+      color: ${(props) => props.colors.normal};
       p & {
         &:visited {
-          color: ${props => props.color.visited};
+          color: ${(props) => props.colors.visited};
         }
 
         // Add external-link icon
@@ -63,10 +63,10 @@ export const Global = withColors(
     // Table rows
     tbody tr{
       &:nth-child(odd) {
-        background-color: ${props => props.color.oddRow};
+        background-color: ${(props) => props.colors.oddRow};
       }
       &:nth-child(even){
-        background-color: ${props => props.color.evenRow}
+        background-color: ${(props) => props.colors.evenRow}
       }
     }
 
