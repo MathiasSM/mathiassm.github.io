@@ -10,7 +10,7 @@ shareTitle: "Mathias San Miguel - SDE"
 
 Hello there!
 
-My name is Mathias (with a mute "h"), and I'm a Software Development Engineer, graduated on July 2019 from _Universidad Simón Bolívar_ with a Computer Science degree. I'm currently ~~living~~ surviving in Venezuela, but if all goes well, I'll soon be relocating to Europe!
+My name is Mathias (with a mute "h"), and I'm a Software Development Engineer, graduated on July 2019 from _Universidad Simón Bolívar_ with a Computer Science degree. I'm currently living in Spain and working for Amazon as an SDE.
 
 From the start of my CS studies at USB, I always picked the courses that most interested me. I chose the specializations in Artificial Intelligence, Programming Languages and Databases Design and Architecture. I grew fond of the last two, specially. The rest of my time on the CS world, I've
 
