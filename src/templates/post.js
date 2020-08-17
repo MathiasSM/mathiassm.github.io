@@ -29,14 +29,18 @@ const Meta = styled.footer`
 
 const PostMeta = ({ language, createdAt, createdAtString, lastModifiedAt }) => (
   <Meta>
-    <span>{localizedStrings[language].originally_written}</span>
-    <span> </span>
-    <time dateTime={createdAt}>{createdAtString}</time>
-    <span>{". "}</span>
-    <span>{localizedStrings[language].last_updated_on}</span>
-    <span> </span>
-    <time dateTime={lastModifiedAt}>{lastModifiedAt}</time>
-    <span>{"."}</span>
+    {language && (
+      <>
+        <span>{localizedStrings[language].originally_written}</span>
+        <span> </span>
+        <time dateTime={createdAt}>{createdAtString}</time>
+        <span>{". "}</span>
+        <span>{localizedStrings[language].last_updated_on}</span>
+        <span> </span>
+        <time dateTime={lastModifiedAt}>{lastModifiedAt}</time>
+        <span>{"."}</span>
+      </>
+    )}
   </Meta>
 );
 PostMeta.propTypes = {
