@@ -12,7 +12,7 @@ import { rhythm } from "utils/typography";
 const Wrapper = withColors(
   (c) => ({ bg: c.primary.pure }),
   styled.div`
-    background: ${(props) => props.colors.bg};
+    background: ${(props) => props.theme.colors.bg};
     &,
     a {
       color: white;
@@ -25,10 +25,10 @@ const Wrapper = withColors(
     align-items: center;
     align-content: center;
     ${media.desktop`
-    flex-direction: column;
-    align-items: stretch;
-    > * {flex: 0 1 auto;}
-  `};
+      flex-direction: column;
+      align-items: stretch;
+      > * {flex: 0 1 auto;}
+    `};
   `
 );
 
@@ -45,7 +45,7 @@ const HomeLink = styled(Link)`
 `;
 
 const Subtitle = styled.div`
-  margin-top: .5rem;
+  margin-top: 1rem;
   text-align: center;
   width: 100%;
   grid-area: subtitle;
@@ -90,7 +90,7 @@ const GoHome = ({ title }) => (
     render={(data) => (
       <>
         <LogoLink to={data.site.siteMetadata.entryPoint} title="Go home">
-          <LogoImg src={logo} alt="" />
+          <LogoImg src={logo} alt="" height="10px" width="10px" />
         </LogoLink>
         <HomeLink to={data.site.siteMetadata.entryPoint}>{title}</HomeLink>
       </>

@@ -28,11 +28,13 @@ const SocialList = withColors(
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
-    a {color: inherit}
+    a {
+      color: inherit;
+    }
     list-style: none;
     ${media.tablet`
       a {color: white}
-      background: ${(props) => props.colors.bg};
+      background: ${(props) => props.theme.colors.bg};
     `}
     ${media.desktop``}
     ${media.bigdesktop``}

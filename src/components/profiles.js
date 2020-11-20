@@ -35,7 +35,7 @@ const Profile = withColors(
       color: inherit;
       &:hover,
       &:focus {
-        color: ${(props) => props.colors.focus};
+        color: ${(props) => props.theme.colors.focus};
       }
     }
     flex: 0 1 100%;

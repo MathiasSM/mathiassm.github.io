@@ -1,5 +1,6 @@
 import { StaticQuery, graphql } from "gatsby";
 import React from "react";
+import PropTypes from "prop-types";
 
 const query = graphql`
   query {
@@ -36,15 +37,20 @@ const query = graphql`
 const id = (a) => a;
 
 const withColors = (getColors = id, Comp) => {
-  const WithColors = ({ ...props }) => (
+  const WithColors = ({ theme, ...props }) => (
     <StaticQuery
       query={query}
       render={(data) => {
         const colors = getColors(data.site.siteMetadata.colors);
-        return <Comp {...{ colors }} {...props} />;
+        return <Comp theme={{ colors, ...theme }} {...props} />;
       }}
     />
   );
+  WithColors.propTypes = {
+    theme: PropTypes.shape({
+      colors: PropTypes.object,
+    }),
+  };
   return WithColors;
 };
 

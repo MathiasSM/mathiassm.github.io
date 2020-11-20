@@ -12,20 +12,21 @@ const activeClassName = "nav-active";
 const MenuNav = withColors(
   (c) => ({ bg: c.primary.pure }),
   styled.nav`
-    background: ${(props) => props.colors.bg};
+    background: ${(props) => props.theme.colors.bg};
     display: flex;
     align-items: center;
-    justify-content: center;
     margin: 0;
     width: 100%;
     text-align: center;
     font-weight: bold;
+    overflow-x: auto;
     a {
       color: white;
     }
     ${media.tablet`
       padding: ${rhythm(1)} 1em;
       flex-direction: column;
+      overflow-x: inherit;
     `};
   `
 );
@@ -37,20 +38,22 @@ const MenuLink = withColors(
   styled(LinkComp).attrs({ activeClassName })`
     font-size: 1.2em;
     ${(props) =>
-      props.defaultLanguage == props.language ? "" : "font-style: italic;"}
+      !props.language || props.defaultLanguage === props.language
+        ? ""
+        : "font-style: italic;"}
     margin: 0;
     width: 100%;
     padding: ${rhythm(0.5)};
     &:hover {
       background: white;
-      color: ${(props) => props.colors.primary};
+      color: ${(props) => props.theme.colors.primary};
     }
     &.${activeClassName} {
       background: white;
-      color: ${(props) => props.colors.accent};
+      color: ${(props) => props.theme.colors.accent};
     }
     &.${activeClassName}:hover {
-      color: ${(props) => props.colors.accent};
+      color: ${(props) => props.theme.colors.accent};
     }
     ${media.desktop`
       padding: ${rhythm(0.5)};

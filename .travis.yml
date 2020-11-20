@@ -18,6 +18,7 @@ node_js:
 
 script:
   - npm test
+  - npm run getBlog
   - npm run build
 
 deploy:
