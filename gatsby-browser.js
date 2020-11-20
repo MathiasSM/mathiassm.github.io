@@ -21,8 +21,8 @@ exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
 };
 
 exports.onInitialClientRender = () => {
-  require("typeface-roboto");
-  require("typeface-roboto-slab");
+  require("fontsource-roboto");
+  require("fontsource-roboto-slab");
   require("katex/dist/katex.min.css");
   require("prismjs/themes/prism-solarizedlight.css");
 };

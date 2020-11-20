@@ -18,7 +18,7 @@ const ExtLink = withColors(
     color: inherit;
     &:hover,
     &:focus {
-      color: ${(props) => props.colors.focus};
+      color: ${(props) => props.theme.colors.focus};
     }
   `
 );

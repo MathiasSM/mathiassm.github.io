@@ -50,15 +50,13 @@ const Grid = styled.div`
 const LayoutComp = ({
   children,
   data: {
-    site: {
-      siteMetadata: { defaultLanguage, ...siteMetadata },
-    },
+    site: { siteMetadata },
     social,
   },
 }) => (
   <Grid>
     <SEO
-      language={defaultLanguage}
+      language={siteMetadata.defaultLanguage}
       defaultTitle={`${siteMetadata.title} - ${siteMetadata.description}`}
       titleTemplate={`%s - ${siteMetadata.title}`}
       og={{ type: "website", site_name: siteMetadata.title }}

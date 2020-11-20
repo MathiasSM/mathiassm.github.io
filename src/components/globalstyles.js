@@ -31,10 +31,10 @@ export const Global = withColors(
     a {
       text-decoration: none;
 
-      color: ${(props) => props.colors.normal};
+      color: ${(props) => props.theme.colors.normal};
       p & {
         &:visited {
-          color: ${(props) => props.colors.visited};
+          color: ${(props) => props.theme.colors.visited};
         }
 
         // Add external-link icon
@@ -63,10 +63,10 @@ export const Global = withColors(
     // Table rows
     tbody tr{
       &:nth-child(odd) {
-        background-color: ${(props) => props.colors.oddRow};
+        background-color: ${(props) => props.theme.colors.oddRow};
       }
       &:nth-child(even){
-        background-color: ${(props) => props.colors.evenRow}
+        background-color: ${(props) => props.theme.colors.evenRow}
       }
     }
 

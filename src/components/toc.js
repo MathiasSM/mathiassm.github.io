@@ -16,7 +16,7 @@ const ShowToC = withColor(
     outline: none;
     width: 100%;
     text-align: center;
-    color: ${(props) => props.colors.black};
+    color: ${(props) => props.theme.colors.black};
   `
 );
 
@@ -38,7 +38,7 @@ const ToCHTML = styled.div`
 const ToCContainer = withColor(
   (c) => ({ white: c.secondary.white }),
   styled.div`
-    background: ${(props) => props.colors.white};
+    background: ${(props) => props.theme.colors.white};
     margin: ${rhythm(1)} 0;
     padding: ${rhythm(1)};
   `
