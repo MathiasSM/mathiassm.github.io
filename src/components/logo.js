@@ -56,6 +56,8 @@ const LogoImg = styled.img`
   max-width: 40%;
   max-height: 100%;
   min-width: ${rhythm(3)};
+  width: auto;
+  height: auto;
   padding: 0;
   margin: 0;
   ${media.desktop`
