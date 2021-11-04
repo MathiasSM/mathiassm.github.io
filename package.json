@@ -46,7 +46,7 @@
     "gatsby-transformer-remark": "^2.11.0",
     "gatsby-transformer-yaml": "^2.6.0",
     "katex": "^0.12.0",
-    "prismjs": "^1.22.0",
+    "prismjs": "^1.25.0",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
