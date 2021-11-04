@@ -17,11 +17,6 @@
     front: true
     description: "Wanna hire?"
 - profile:
-    title: "Medium"
-    href: "https://medium.com/@mathiassm"
-    username: "@mathiassm"
-    description: "Creative writings"
-- profile:
     title: "MAL"
     href: "https://myanimelist.net/animelist/mathiassm"
     username: "mathiassm"

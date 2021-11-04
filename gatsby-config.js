@@ -31,7 +31,7 @@ const siteMetadata = {
  */
 const mapping = {
   "ProjectsYaml.project.team": "PeopleYaml",
-  "ProjectsYaml.project.status": "StatusesYaml",
+  "ProjectsYaml.project.status": "StatusesYaml.yamlId",
 };
 
 /**
@@ -119,12 +119,6 @@ const gatsbyRemarkCodeBlocks = [
   },
   // Syntax highlighting. Defaults are ok
   "gatsby-remark-prismjs",
-  {
-    resolve: "gatsby-remark-embed-snippet",
-    options: {
-      directory: `${__dirname}/data/code/`,
-    },
-  },
 ];
 
 /**
@@ -207,7 +201,7 @@ const gatsbyTransforms = [
   {
     resolve: `gatsby-transformer-remark`,
     options: {
-      plugins: gatsbyRemarkPlugins,
+      plugins: [],
     },
   },
   "git",

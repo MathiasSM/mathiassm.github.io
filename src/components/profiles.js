@@ -18,7 +18,6 @@ import withColors from "components/withcolors";
 const socialIcons = {
   Twitter,
   Github,
-  Medium,
   LinkedIn,
   IMDb,
   MAL,
@@ -104,13 +103,20 @@ SocialItem.propTypes = {
 const ProfilesWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const Profiles = ({ profiles }) => (
   <ProfilesWrap>
-    {profiles.map(({ node: { profile: { title, ...profile } } }) => (
-      <SocialItem key={title} title={title} {...profile} />
-    ))}
+    {profiles.map(
+      ({
+        node: {
+          profile: { title, ...profile },
+        },
+      }) => (
+        <SocialItem key={title} title={title} {...profile} />
+      )
+    )}
   </ProfilesWrap>
 );
 Profiles.propTypes = {
