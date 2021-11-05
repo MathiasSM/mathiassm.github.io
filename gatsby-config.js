@@ -148,7 +148,7 @@ const gatsbyRemarkImages = [
     options: { maxWidth: 900 },
   },
   // Copies images (svg and gif) without processing
-  "gatsby-remark-static-images",
+  "gatsby-remark-copy-linked-files",
 ];
 
 /**
@@ -159,27 +159,12 @@ const gatsbyRemarkSyntax = [
   "gatsby-remark-katex",
   // Embed youtube/others videos easily and consistently
   "gatsby-remark-embed-video",
-  // HTML sup and sub
-  "gatsby-remark-sub-sup",
-  // Custom div classes in markdown
-  {
-    resolve: "gatsby-remark-custom-blocks",
-    options: {
-      blocks: {
-        danger: "custom-block-danger",
-        warning: "custom-block-warning",
-        info: "custom-block-info",
-      },
-    },
-  },
 ];
 
 /**
  * List of remark plugins we use
  */
 const gatsbyRemarkPlugins = [
-  // Adds sourceName to markdown nodes
-  "gatsby-remark-source-name",
   // Elegant quotes, ellipsis and dashes
   "gatsby-remark-smartypants",
   // Removes widow words via nbs
@@ -189,7 +174,7 @@ const gatsbyRemarkPlugins = [
   ...gatsbyRemarkImages,
   ...gatsbyRemarkLinks,
   // Adds aria attributes for accessibility. Needs to be at the end
-  "gatsby-remark-a11y-emoji",
+  "@fec/remark-a11y-emoji/gatsby",
 ];
 
 /**
@@ -201,7 +186,7 @@ const gatsbyTransforms = [
   {
     resolve: `gatsby-transformer-remark`,
     options: {
-      plugins: [],
+      plugins: gatsbyRemarkPlugins,
     },
   },
   "git",
