@@ -12,15 +12,12 @@ function checkHash(location) {
   return true;
 }
 
-exports.onInitialClientRender = () => {
-  checkHash(globalHistory.location);
-};
-
 exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
   checkHash(location);
 };
 
 exports.onInitialClientRender = () => {
+  checkHash(globalHistory.location);
   require("fontsource-roboto");
   require("fontsource-roboto-slab");
   require("katex/dist/katex.min.css");

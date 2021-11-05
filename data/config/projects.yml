@@ -1,4 +1,14 @@
 - project:
+    title: "SDE at Amazon"
+    href: "#"
+    dateStarted: 2019-11-18
+    status: ongoing
+    description:
+      short: "Working as an SDE at Amazon Spain."
+      long: "From developing better UX for search users, to many internal tools to improve branded queries, and beyond."
+    team: []
+
+- project:
     title: "Sutori"
     href: "https://mathiassm.github.io/Sutori"
     dateStarted: 2018-05-02
@@ -25,7 +35,7 @@
     title: "This site"
     href: "/"
     dateStarted: 2015-11-26
-    status: beta
+    status: ongoing
     description:
       short: "My personal site/blog/space."
       long: "Developed a simple ever-changing website for my own writings, showcase my projects and serve as an online portfolio."
@@ -47,9 +57,9 @@
     title: "Vim dotfiles"
     href: "https://github.com/MathiasSM/.vim"
     dateStarted: 2018-06-22
-    status: beta
+    status: ongoing
     description:
-      short: "Vim dotfiles for a great coding experience"
+      short: "Vim dotfiles for a great coding experience."
 
 - project:
     title: "Apolo - Firefighters System"
