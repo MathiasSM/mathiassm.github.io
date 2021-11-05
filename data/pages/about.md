@@ -14,13 +14,13 @@ My name is Mathias (with a mute "h"), and I'm a Software Development Engineer, g
 
 From the start of my CS studies at USB, I always picked the courses that most interested me. I chose the specializations in Artificial Intelligence, Programming Languages and Databases Design and Architecture. I grew fond of the last two, specially. The rest of my time on the CS world, I've
 
-- **Participated in coding competitions** such as ACM-ICPC and IOI,
+- **Been working for Amazon for 2+ years** mostly improving parts of Search,
 
-- **Worked remotely** for people in different countries and time zones,
+- **Participated in coding competitions** such as ACM-ICPC and IOI,
 
 - **Developed automation tools** to make some programming tasks easier,
 
-- **Worked as a SysAdmin** in a team responsible for the University's network,
+- **Worked as a SysAdmin** in a team responsible for my University's network,
 
 - **Given classes** to newcomers to Computer Science and Programming, and
 
